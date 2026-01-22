@@ -52,8 +52,23 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Premium soft edge vignette mask */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
 
+    /* Premium soft edge vignette mask */
+    #gallery {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-track {
+        animation: none !important;
+      }
+    }
 
     :root {
       color-scheme: light dark;
@@ -383,7 +398,7 @@
         <svg class="h-4 w-4 text-kerala-green" aria-hidden="true">
           <use href="#icon-kerala" />
         </svg>
-        <span>Kerala Authentic • e-rituals products & services</span>
+        <span>Kerala Authentic • E-Rituals Products & Services</span>
       </div>
     </div>
   </div>
@@ -430,8 +445,14 @@
   </header>
 
   <!-- Hero -->
-  <section class="relative overflow-hidden bg-cover bg-center" style="background-image:url('images/BG.JPG');">
-    <div class="absolute inset-0 bg-black/55"></div>
+  <section class="relative overflow-hidden bg-[#0a0a0a]">
+    <!-- Ambient background -->
+    <div class="absolute inset-0">
+      <img src="images/BG.JPG" class="h-full w-full object-cover opacity-40 md:opacity-55" alt="" aria-hidden="true">
+      <div class="absolute inset-0 bg-black/50"></div>
+    </div>
+
+    <!-- <div class="absolute inset-0 bg-black/55"></div> -->
 
     <div class="absolute inset-0 -z-10 bg-[#faf5e9]"></div>
     <!-- Subtle sacred motif: concentric circles -->
@@ -443,7 +464,7 @@
       <circle cx="100" cy="100" r="24" stroke="#0b7d44" stroke-opacity=".25" stroke-width="2" />
     </svg>
     <div class="mx-auto max-w-7xl px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
-      <div>
+      <div class="relative z-10 max-w-xl">
         <div
           class="inline-flex items-center gap-2 rounded-full bg-white border border-amber-200 px-3 py-1 text-xs text-amber-700 shadow-soft">
           <i data-lucide="sparkles" class="h-4 w-4"></i>
@@ -458,24 +479,27 @@
           in a well-Organised <strong class="text-amber-300">Kerala-Tantrik Model</strong>
 
         </p>
-        <div class="mt-8 flex items-center gap-6 text-sm text-white/80" data-animate>
+        <div class="mt-8 grid grid-cols-2 gap-3 sm:flex sm:gap-6 text-sm" data-animate>
           <a href="#products"
             class="inline-flex items-center justify-center gap-2 rounded-xl bg-kerala-green px-5 py-3 text-white shadow-soft hover:opacity-95">
             <i data-lucide="shopping-cart"></i>
             Buy a Product
           </a>
           <a href="#contact"
-            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-slate-800 hover:bg-white/60">
+            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-white border-white/70 hover:bg-white/10 hover:border-white
+">
             <i data-lucide="calendar"></i>
             Rent a Product
           </a>
           <a href="#contact"
-            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-slate-800 hover:bg-white/60">
+            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-white border-white/70 hover:bg-white/10 hover:border-white
+">
             <i data-lucide="gift"></i>
             Gift a Pooja
           </a>
           <a href="#contact"
-            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-slate-800 hover:bg-white/60">
+            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-white border-white/70 hover:bg-white/10 hover:border-white
+">
             <i data-lucide="hands"></i>
             Book a Ritual
           </a>
@@ -487,14 +511,15 @@
             delivery</span>
         </div>
       </div>
-      <div class="group relative overflow-hidden rounded-3xl shadow-soft">
+      <div class="group relative overflow-hidden rounded-3xl shadow-soft
+            md:translate-x-16 lg:translate-x-24">
 
         <!-- Blurred background clone (bigger + stronger) -->
         <img src="images/01.jpg" class="absolute inset-0 h-full w-full object-cover scale-125 blur-2xl opacity-80"
           aria-hidden="true">
 
         <!-- Main sharp image (animated) -->
-        <img src="images/01.jpg" alt="Sacred homa kundam ritual" class="relative h-[420px] w-full object-cover object-center
+        <img src="images/01.jpg" alt="Sacred homa kundam ritual" class="relative h-[260px] sm:h-[360px] md:h-[420px] w-full object-cover object-right
            transition-transform duration-[6000ms] ease-out
            group-hover:scale-105">
 
@@ -538,7 +563,7 @@
       <p class="mt-3 text-slate-600">Choose how you want to engage with our authentic offerings.</p>
     </div>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
       <!-- Buy a Product -->
       <div class="group rounded-2xl border p-6 hover:shadow-soft transition reveal" data-animate>
         <div class="h-12 w-12 rounded-lg bg-kerala-green/10 text-kerala-green flex items-center justify-center mb-4">
@@ -841,13 +866,13 @@
 
           <!-- KEEP ALL YOUR .gallery-item blocks here -->
           <!-- example -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/02.jpg" class="h-56 w-full object-cover cursor-zoom-in" loading="lazy">
             </div>
           </div>
 
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/02.jpg" alt="Traditional deepam aarathi ceremony"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -855,7 +880,7 @@
           </div>
 
           <!-- 03 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/03.jpg" alt="Kerala pooja items arranged traditionally"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -863,7 +888,7 @@
           </div>
 
           <!-- 04 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/04.jpg" alt="Kerala ritual ceremony moment"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -871,7 +896,7 @@
           </div>
 
           <!-- 05 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/05.jpg" alt="Sacred pooja setup"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -879,7 +904,7 @@
           </div>
 
           <!-- 06 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/06.jpg" alt="Traditional Kerala deepam lighting"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -887,7 +912,7 @@
           </div>
 
           <!-- 07 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/07.jpg" alt="Kerala ritual atmosphere"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -895,7 +920,7 @@
           </div>
 
           <!-- 08 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/08.jpg" alt="Sacred pooja items"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -903,7 +928,7 @@
           </div>
 
           <!-- 10 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/10.jpg" alt="Kerala festival ritual"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -911,7 +936,7 @@
           </div>
 
           <!-- 11 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/11.jpg" alt="Traditional homam ritual"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -919,7 +944,7 @@
           </div>
 
           <!-- 12 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/12.jpg" alt="Kerala pooja ceremony"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -927,7 +952,7 @@
           </div>
 
           <!-- 13 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/13.jpg" alt="Sacred ritual fire offering"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -935,7 +960,7 @@
           </div>
 
           <!-- 14 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/14.jpg" alt="Kerala temple ritual"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -943,7 +968,7 @@
           </div>
 
           <!-- 15 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/15.jpg" alt="Traditional pooja lighting"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -951,7 +976,7 @@
           </div>
 
           <!-- 16 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/16.jpg" alt="Sacred offerings in ritual"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -959,7 +984,7 @@
           </div>
 
           <!-- 17 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/17.jpg" alt="Kerala homam ritual fire"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -967,7 +992,7 @@
           </div>
 
           <!-- 18 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/18.jpg" alt="Traditional pooja decor"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -975,7 +1000,7 @@
           </div>
 
           <!-- 19 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/19.jpg" alt="Kerala sacred ceremony"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -983,7 +1008,7 @@
           </div>
 
           <!-- 20 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/20.jpg" alt="Ritual offerings and lamps"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -991,7 +1016,7 @@
           </div>
 
           <!-- 21 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/21.jpg" alt="Traditional Kerala pooja"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -999,7 +1024,7 @@
           </div>
 
           <!-- 22 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/22.jpg" alt="Sacred ritual flames"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -1007,7 +1032,7 @@
           </div>
 
           <!-- 23 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/23.jpg" alt="Kerala temple pooja"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -1015,7 +1040,7 @@
           </div>
 
           <!-- 24 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/24.jpg" alt="Traditional homam ceremony"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -1023,7 +1048,7 @@
           </div>
 
           <!-- 25 -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/25.jpg" alt="Kerala ritual moment"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
@@ -1032,74 +1057,74 @@
 
           <!-- Filenames with spaces MUST be URL encoded -->
           <!-- 26 variations -->
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/26.jpg" alt="Kerala pooja ceremony"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
             </div>
           </div>
 
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/26%20(2).jpg" alt="Kerala ritual fire moment"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
             </div>
           </div>
 
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/26%20(3).jpg" alt="Sacred lamp ritual"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
             </div>
           </div>
 
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/26%20(4).jpg" alt="Traditional Kerala pooja lighting"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
             </div>
           </div>
 
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/26%20(6).jpg" alt="Kerala homam flames"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
             </div>
           </div>
 
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/26%20(7).jpg" alt="Sacred ritual atmosphere"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
             </div>
           </div>
 
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/26%20(8).jpg" alt="Kerala pooja fire offering"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
             </div>
           </div>
 
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/26%20(9).jpg" alt="Traditional deepam ceremony"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
             </div>
           </div>
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/27.jpg" alt="Traditional deepam ceremony"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
             </div>
           </div>
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/28.jpg" alt="Traditional deepam ceremony"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
             </div>
           </div>
-          <div class="gallery-item shrink-0 w-72">
+          <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
               <img src="images/29.jpg" alt="Traditional deepam ceremony"
                 class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
