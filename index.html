@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 
@@ -53,6 +52,9 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    /* Premium soft edge vignette mask */
+
+
     :root {
       color-scheme: light dark;
     }
@@ -63,6 +65,26 @@
 
     body {
       font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+    }
+
+    /* Continuous gallery animation */
+    @keyframes slideGallery {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .gallery-track {
+      animation: slideGallery 60s linear infinite;
+    }
+
+    /* Pause on hover (premium UX) */
+    .gallery-track:hover {
+      animation-play-state: paused;
     }
 
     /* Subtle animations and effects */
@@ -408,7 +430,9 @@
   </header>
 
   <!-- Hero -->
-  <section class="relative overflow-hidden">
+  <section class="relative overflow-hidden bg-cover bg-center" style="background-image:url('images/BG.JPG');">
+    <div class="absolute inset-0 bg-black/55"></div>
+
     <div class="absolute inset-0 -z-10 bg-[#faf5e9]"></div>
     <!-- Subtle sacred motif: concentric circles -->
     <svg class="pointer-events-none absolute -z-10 right-[-60px] top-[-40px] opacity-20" width="260" height="260"
@@ -425,15 +449,16 @@
           <i data-lucide="sparkles" class="h-4 w-4"></i>
           Technology embedded with Rituals
         </div>
-        <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight tracking-tight uppercase">
+        <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight tracking-tight uppercase text-amber-300">
           <span class="block">Unleash the Potential of</span>
           <span class="block">Faith with Our Products</span>
         </h1>
-        <p class="mt-4 text-slate-700 md:text-lg">
+        <p class="mt-4 text-white/90 md:text-lg">
           Helping to satisfy your Rituals needs with our products and services
-          in a well-Organised <strong>Kerala-Tantrik Model</strong>
+          in a well-Organised <strong class="text-amber-300">Kerala-Tantrik Model</strong>
+
         </p>
-        <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 reveal" data-animate>
+        <div class="mt-8 flex items-center gap-6 text-sm text-white/80" data-animate>
           <a href="#products"
             class="inline-flex items-center justify-center gap-2 rounded-xl bg-kerala-green px-5 py-3 text-white shadow-soft hover:opacity-95">
             <i data-lucide="shopping-cart"></i>
@@ -462,42 +487,42 @@
             delivery</span>
         </div>
       </div>
-      <div class="relative reveal" data-animate>
+      <div class="group relative overflow-hidden rounded-3xl shadow-soft">
 
-        <!-- Glow aura -->
-        <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-amber-400/20 blur-3xl"></div>
+        <!-- Blurred background clone (bigger + stronger) -->
+        <img src="images/01.jpg" class="absolute inset-0 h-full w-full object-cover scale-125 blur-2xl opacity-80"
+          aria-hidden="true">
 
-        <!-- Image Card -->
-        <div class="relative overflow-hidden rounded-3xl shadow-soft">
+        <!-- Main sharp image (animated) -->
+        <img src="images/01.jpg" alt="Sacred homa kundam ritual" class="relative h-[420px] w-full object-cover object-center
+           transition-transform duration-[6000ms] ease-out
+           group-hover:scale-105">
 
-          <!-- Ritual Image -->
-          <img src="images/01.jpg" alt="Sacred homa kundam ritual" class="h-[420px] w-full object-cover object-center">
-
-          <!-- Dark sacred overlay -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-
-          <!-- Floating stats -->
-          <div class="absolute bottom-4 left-4 right-4 grid grid-cols-3 gap-3 text-white text-center">
-
-            <div class="rounded-xl bg-black/50 backdrop-blur bg-black/40 backdrop-blur ring-1 ring-white/15 py-3">
-              <div class="text-xl font-extrabold text-amber-300">500+</div>
-              <div class="text-xs uppercase tracking-wide opacity-80">Pooja Items</div>
-            </div>
-
-            <div class="rounded-xl bg-black/50 backdrop-blur bg-black/40 backdrop-blur ring-1 ring-white/15 py-3">
-              <div class="text-xl font-extrabold text-amber-300">10K+</div>
-              <div class="text-xs uppercase tracking-wide opacity-80">Happy Clients</div>
-            </div>
-
-            <div class="rounded-xl bg-black/50 backdrop-blur bg-black/40 backdrop-blur ring-1 ring-white/15 py-3">
-              <div class="text-xl font-extrabold text-amber-300">24×7</div>
-              <div class="text-xs uppercase tracking-wide opacity-80">Support</div>
-            </div>
-
-          </div>
-
+        <!-- Edge vignette -->
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40"></div>
         </div>
+
+        <!-- Floating stats -->
+        <div class="absolute bottom-4 left-4 right-4 grid grid-cols-3 gap-3 text-white text-center">
+          <div class="rounded-xl bg-black/40 backdrop-blur ring-1 ring-white/15 py-3">
+            <div class="text-xl font-extrabold text-amber-300">500+</div>
+            <div class="text-xs uppercase tracking-wide opacity-80">Pooja Items</div>
+          </div>
+          <div class="rounded-xl bg-black/40 backdrop-blur ring-1 ring-white/15 py-3">
+            <div class="text-xl font-extrabold text-amber-300">10K+</div>
+            <div class="text-xs uppercase tracking-wide opacity-80">Happy Clients</div>
+          </div>
+          <div class="rounded-xl bg-black/40 backdrop-blur ring-1 ring-white/15 py-3">
+            <div class="text-xl font-extrabold text-amber-300">24×7</div>
+            <div class="text-xs uppercase tracking-wide opacity-80">Support</div>
+          </div>
+        </div>
+
       </div>
+
+
 
     </div>
     <!-- Gentle wave divider -->
@@ -583,8 +608,7 @@
       <!-- Buy -->
       <div class="grid md:grid-cols-2 gap-8 items-center reveal" data-animate>
         <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=1400&auto=format&fit=crop"
-            alt="Brass diyas and pooja setup" class="h-80 w-full object-cover">
+          <img src="images/home_pooja.png" alt="Brass diyas and pooja setup" class="h-80 w-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/70 to-transparent"></div>
         </div>
         <div>
@@ -629,8 +653,7 @@
             <i data-lucide="arrow-right"></i></a>
         </div>
         <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1400&auto=format&fit=crop"
-            alt="Decor elements for ceremonies" class="h-80 w-full object-cover">
+          <img src="images/rental.jpg" alt="Decor elements for ceremonies" class="h-80 w-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
         </div>
       </div>
@@ -638,8 +661,7 @@
       <!-- Gift a Pooja -->
       <div class="grid md:grid-cols-2 gap-8 items-center reveal" data-animate>
         <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1400&auto=format&fit=crop"
-            alt="Blessings as a gift" class="h-80 w-full object-cover">
+          <img src="images/gift_pooja.png" alt="Blessings as a gift" class="h-80 w-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
         </div>
         <div>
@@ -686,8 +708,7 @@
               data-lucide="arrow-right"></i></a>
         </div>
         <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=1400&auto=format&fit=crop"
-            alt="Traditional ritual in progress" class="h-80 w-full object-cover">
+          <img src="images/book.png" alt="Traditional ritual in progress" class="h-80 w-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
         </div>
       </div>
@@ -801,7 +822,8 @@
     </div>
   </section>
   <!-- Gallery -->
-  <section id="gallery" class="bg-[#faf5e9] border-y">
+
+  <section id="gallery" class="bg-[#faf5e9] border-y overflow-hidden">
     <div class="mx-auto max-w-7xl px-4 py-16 md:py-24">
 
       <div class="text-center max-w-3xl mx-auto">
@@ -813,277 +835,279 @@
         </p>
       </div>
 
-      <!-- Masonry-like Grid -->
-      <div class="mt-12 columns-1 sm:columns-2 lg:columns-3 gap-6">
+      <!-- Slider -->
+      <div class="relative mt-12 overflow-hidden">
+        <div id="galleryTrack" class="flex gap-6 w-max gallery-track">
 
-        <!-- Helper template:
-  Copy-paste one block and change image name only
-  -->
+          <!-- KEEP ALL YOUR .gallery-item blocks here -->
+          <!-- example -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/02.jpg" class="h-56 w-full object-cover cursor-zoom-in" loading="lazy">
+            </div>
+          </div>
 
-        <!-- 01 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/02.jpg" alt="Traditional deepam aarathi ceremony"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
+          </div>
 
+          <!-- 03 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/03.jpg" alt="Kerala pooja items arranged traditionally"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
+          </div>
 
-        <!-- 02 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/02.jpg" alt="Traditional deepam aarathi ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 04 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/04.jpg" alt="Kerala ritual ceremony moment"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 03 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/03.jpg" alt="Kerala pooja items arranged traditionally"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 05 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/05.jpg" alt="Sacred pooja setup"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 04 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/04.jpg" alt="Kerala ritual ceremony moment"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 06 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/06.jpg" alt="Traditional Kerala deepam lighting"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 05 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/05.jpg" alt="Sacred pooja setup"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 07 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/07.jpg" alt="Kerala ritual atmosphere"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 06 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/06.jpg" alt="Traditional Kerala deepam lighting"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 08 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/08.jpg" alt="Sacred pooja items"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 07 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/07.jpg" alt="Kerala ritual atmosphere"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 10 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/10.jpg" alt="Kerala festival ritual"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 08 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/08.jpg" alt="Sacred pooja items"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 11 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/11.jpg" alt="Traditional homam ritual"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 10 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/10.jpg" alt="Kerala festival ritual"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 12 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/12.jpg" alt="Kerala pooja ceremony"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 11 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/11.jpg" alt="Traditional homam ritual"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 13 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/13.jpg" alt="Sacred ritual fire offering"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 12 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/12.jpg" alt="Kerala pooja ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 14 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/14.jpg" alt="Kerala temple ritual"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 13 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/13.jpg" alt="Sacred ritual fire offering"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 15 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/15.jpg" alt="Traditional pooja lighting"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 14 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/14.jpg" alt="Kerala temple ritual"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 16 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/16.jpg" alt="Sacred offerings in ritual"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 15 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/15.jpg" alt="Traditional pooja lighting"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 17 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/17.jpg" alt="Kerala homam ritual fire"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 16 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/16.jpg" alt="Sacred offerings in ritual"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 18 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/18.jpg" alt="Traditional pooja decor"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 17 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/17.jpg" alt="Kerala homam ritual fire"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 19 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/19.jpg" alt="Kerala sacred ceremony"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 18 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/18.jpg" alt="Traditional pooja decor"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 20 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/20.jpg" alt="Ritual offerings and lamps"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 19 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/19.jpg" alt="Kerala sacred ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 21 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/21.jpg" alt="Traditional Kerala pooja"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 20 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/20.jpg" alt="Ritual offerings and lamps"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 22 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/22.jpg" alt="Sacred ritual flames"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 21 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/21.jpg" alt="Traditional Kerala pooja"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 23 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/23.jpg" alt="Kerala temple pooja"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 22 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/22.jpg" alt="Sacred ritual flames"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 24 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/24.jpg" alt="Traditional homam ceremony"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 23 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/23.jpg" alt="Kerala temple pooja"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- 25 -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/25.jpg" alt="Kerala ritual moment"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 24 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/24.jpg" alt="Traditional homam ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <!-- Filenames with spaces MUST be URL encoded -->
+          <!-- 26 variations -->
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/26.jpg" alt="Kerala pooja ceremony"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- 25 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/25.jpg" alt="Kerala ritual moment"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/26%20(2).jpg" alt="Kerala ritual fire moment"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <!-- Filenames with spaces MUST be URL encoded -->
-        <!-- 26 variations -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26.jpg" alt="Kerala pooja ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/26%20(3).jpg" alt="Sacred lamp ritual"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(2).jpg" alt="Kerala ritual fire moment"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/26%20(4).jpg" alt="Traditional Kerala pooja lighting"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(3).jpg" alt="Sacred lamp ritual"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/26%20(6).jpg" alt="Kerala homam flames"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(4).jpg" alt="Traditional Kerala pooja lighting"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/26%20(7).jpg" alt="Sacred ritual atmosphere"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(6).jpg" alt="Kerala homam flames"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/26%20(8).jpg" alt="Kerala pooja fire offering"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
 
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(7).jpg" alt="Sacred ritual atmosphere"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/26%20(9).jpg" alt="Traditional deepam ceremony"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
           </div>
-        </div>
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/27.jpg" alt="Traditional deepam ceremony"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
+          </div>
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/28.jpg" alt="Traditional deepam ceremony"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
+          </div>
+          <div class="gallery-item shrink-0 w-72">
+            <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
+              <img src="images/29.jpg" alt="Traditional deepam ceremony"
+                class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
+            </div>
+          </div>
 
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(8).jpg" alt="Kerala pooja fire offering"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(9).jpg" alt="Traditional deepam ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/27.jpg" alt="Traditional deepam ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/28.jpg" alt="Traditional deepam ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/29.jpg" alt="Traditional deepam ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
         </div>
       </div>
-
 
     </div>
   </section>
@@ -1110,8 +1134,7 @@
       <div class="relative">
         <div class="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-amber-200/50 blur-2xl"></div>
         <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1400&auto=format&fit=crop"
-            alt="Craftsmanship" class="h-80 w-full object-cover">
+          <img src="images/devine.png" alt="Craftsmanship" class="h-80 w-full object-cover">
         </div>
       </div>
     </div>
@@ -1300,6 +1323,74 @@
   </footer>
 
   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const track = document.getElementById("galleryTrack");
+      const items = Array.from(track.children);
+
+      // Duplicate items for seamless loop
+      items.forEach(item => {
+        track.appendChild(item.cloneNode(true));
+      });
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+      const galleryGrid = document.getElementById("galleryGrid");
+      const items = Array.from(
+        galleryGrid.querySelectorAll(".gallery-item")
+      );
+
+      if (items.length <= 5) return;
+
+      function shuffleGallery() {
+        // Shuffle items
+        const shuffled = items
+          .map(item => ({ item, sort: Math.random() }))
+          .sort((a, b) => a.sort - b.sort)
+          .map(({ item }) => item);
+
+        // Random count between 5 and 10
+        const visibleCount = Math.floor(Math.random() * 6) + 5;
+
+        // Hide all
+        items.forEach(item => {
+          item.style.display = "none";
+        });
+
+        // Show selected with animation
+        shuffled.slice(0, visibleCount).forEach(item => {
+          item.style.display = "block";
+          item.style.animation = "galleryFadeUp 0.8s ease forwards";
+        });
+      }
+
+      // Initial load
+      shuffleGallery();
+
+      // Auto-rotate every 10 seconds
+      setInterval(shuffleGallery, 10000);
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+      const items = Array.from(
+        document.querySelectorAll("#galleryGrid .gallery-item")
+      );
+
+      if (items.length <= 10) return;
+
+      // Shuffle
+      const shuffled = items.sort(() => 0.5 - Math.random());
+
+      // Pick random count between 5 and 10
+      const visibleCount = Math.floor(Math.random() * 6) + 5;
+
+      // Hide all
+      items.forEach(item => {
+        item.style.display = "none";
+      });
+
+      // Show selected
+      shuffled.slice(0, visibleCount).forEach(item => {
+        item.style.display = "block";
+      });
+    });
     // Icons
     lucide.createIcons();
 
@@ -1321,1510 +1412,71 @@
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
-     const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const closeBtn = document.getElementById('lightboxClose');
-  const prevBtn = document.getElementById('lightboxPrev');
-  const nextBtn = document.getElementById('lightboxNext');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('lightboxClose');
+    const prevBtn = document.getElementById('lightboxPrev');
+    const nextBtn = document.getElementById('lightboxNext');
 
-  const galleryImages = Array.from(
-    document.querySelectorAll('#gallery img')
-  );
+    const galleryImages = Array.from(
+      document.querySelectorAll('#gallery img')
+    );
 
-  let currentIndex = 0;
+    let currentIndex = 0;
 
-  function openLightbox(index) {
-    currentIndex = index;
-    lightboxImg.src = galleryImages[index].src;
-    lightboxImg.alt = galleryImages[index].alt;
-    lightbox.classList.remove('hidden');
-    lightbox.classList.add('flex');
-    document.body.style.overflow = 'hidden';
-  }
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = galleryImages[index].src;
+      lightboxImg.alt = galleryImages[index].alt;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
 
-  function closeLightbox() {
-    lightbox.classList.add('hidden');
-    lightbox.classList.remove('flex');
-    document.body.style.overflow = '';
-  }
+    function closeLightbox() {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
 
-  function showNext() {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    openLightbox(currentIndex);
-  }
+    function showNext() {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      openLightbox(currentIndex);
+    }
 
-  function showPrev() {
-    currentIndex =
-      (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    openLightbox(currentIndex);
-  }
+    function showPrev() {
+      currentIndex =
+        (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      openLightbox(currentIndex);
+    }
 
-  // Image click
-  galleryImages.forEach((img, index) => {
-    img.addEventListener('click', () => openLightbox(index));
-  });
+    // Image click
+    galleryImages.forEach((img, index) => {
+      img.addEventListener('click', () => openLightbox(index));
+    });
 
-  // Buttons
-  closeBtn.addEventListener('click', closeLightbox);
-  nextBtn.addEventListener('click', showNext);
-  prevBtn.addEventListener('click', showPrev);
+    // Buttons
+    closeBtn.addEventListener('click', closeLightbox);
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
 
-  // Background click
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
+    // Background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
 
-  // Keyboard support
-  document.addEventListener('keydown', (e) => {
-    if (lightbox.classList.contains('hidden')) return;
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('hidden')) return;
 
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-  });
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
   </script>
 
 
-</body>
 
-=======
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thirumeni Traders – Kerala E-Rituals Products & Services</title>
-  <meta name="description"
-    content="Thirumeni Traders provides authentic Kerala e-rituals products and services. Buy, rent, or gift pooja essentials with ease." />
-  <link rel="icon" type="image/png" href="images/logo.png" />
-
-  <!-- Inter font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#f6fff8',
-              100: '#e9ffef',
-              200: '#c8ffd9',
-              300: '#9bffc0',
-              400: '#63f3a0',
-              500: '#36d581', // accent green
-              600: '#22b36b',
-              700: '#1b8d57',
-              800: '#176e47',
-              900: '#124f36',
-            },
-            kerala: {
-              green: '#0b7d44',
-              gold: '#c7a028',
-              dark: '#0a1f1a',
-            }
-          },
-          boxShadow: {
-            soft: '0 10px 25px -10px rgba(0,0,0,0.25)'
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <style>
-    :root {
-      color-scheme: light dark;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
-    }
-
-    /* Subtle animations and effects */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes floatSlow {
-      0% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-6px);
-      }
-
-      100% {
-        transform: translateY(0);
-      }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-
-    .reveal.in {
-      animation: fadeUp .7s ease-out forwards;
-    }
-
-    .nav-link {
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -6px;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(11, 125, 68, .2), rgba(199, 160, 40, .4));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .25s ease;
-    }
-
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      transform: scaleX(1);
-    }
-
-    /* Gallery animations */
-    @keyframes galleryFadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(24px) scale(0.96);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .gallery-item {
-      opacity: 0;
-      transform: translateY(24px) scale(0.96);
-      animation: galleryFadeUp 0.8s ease forwards;
-    }
-
-
-
-    .gallery-item:nth-child(odd) {
-      animation-delay: 0.1s;
-    }
-
-    .gallery-item:nth-child(even) {
-      animation-delay: 0.25s;
-    }
-
-    .gallery-glow::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center,
-          rgba(199, 160, 40, 0.35),
-          transparent 65%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-      /* 🔥 THIS FIXES EVERYTHING */
-    }
-
-
-    .gallery-glow:hover::after {
-      opacity: 1;
-    }
-
-    @keyframes lightboxZoom {
-      from {
-        opacity: 0;
-        transform: scale(0.92);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .animate-lightbox {
-      animation: lightboxZoom 0.35s ease-out;
-    }
-  </style>
-  <!-- SEO Structured Data -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://thirumenitraders.com/#organization",
-      "name": "THIRUMENI traders",
-      "url": "https://thirumenitraders.com",
-      "logo": "https://thirumenitraders.com/images/logo.png",
-      "description": "Kerala E-Rituals products and services blending divinity with technology.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-98765-43210",
-        "contactType": "customer support",
-        "areaServed": "IN",
-        "availableLanguage": ["English"]
-      },
-      "sameAs": [
-        "https://www.facebook.com/",
-        "https://www.instagram.com/"
-      ]
-    },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://thirumenitraders.com/#localbusiness",
-      "name": "THIRUMENI traders",
-      "image": "https://thirumenitraders.com/images/logo.png",
-      "url": "https://thirumenitraders.com",
-      "telephone": "+91-98765-43210",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Trivandrum",
-        "addressRegion": "Kerala",
-        "addressCountry": "IN"
-      },
-      "priceRange": "₹₹",
-      "areaServed": {
-        "@type": "State",
-        "name": "Kerala"
-      }
-    },
-
-    {
-      "@type": "WebSite",
-      "@id": "https://thirumenitraders.com/#website",
-      "url": "https://thirumenitraders.com",
-      "name": "THIRUMENI traders",
-      "publisher": {
-        "@id": "https://thirumenitraders.com/#organization"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://thirumenitraders.com/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://thirumenitraders.com/#breadcrumbs",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://thirumenitraders.com"
-        }
-      ]
-    },
-
-    {
-      "@type": "Product",
-      "name": "Traditional Brass Nilavilakku",
-      "image": "https://thirumenitraders.com/images/logo.png",
-      "description": "Authentic brass lamp for Kerala pooja rituals.",
-      "brand": {
-        "@type": "Brand",
-        "name": "THIRUMENI traders"
-      },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "INR",
-        "price": "2499",
-        "availability": "https://schema.org/InStock"
-      }
-    },
-
-    {
-      "@type": "FAQPage",
-      "@id": "https://thirumenitraders.com/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Do you provide authentic Kerala ritual products?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. All products are curated and sourced following traditional Kerala-Tantrik practices."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I rent pooja items for one-time ceremonies?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We offer short-term rentals for festivals, housewarming ceremonies, and special rituals."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer priest-led rituals?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We arrange experienced priests for at-home or virtual rituals based on Kerala traditions."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
-
-</head>
-
-<body class="bg-white text-slate-800">
-  <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
-    <symbol id="icon-diya" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-      stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 3c1.8 2 1.8 3.5 0 5-1.8-1.5-1.8-3 0-5z" />
-      <path d="M3 14c3 5 15 5 18 0" />
-      <path d="M5 14a7 7 0 0 0 14 0H5z" fill="currentColor" opacity=".1" />
-    </symbol>
-    <symbol id="icon-rent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-      stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3" y="5" width="18" height="16" rx="2" />
-      <path d="M8 3v4M16 3v4M3 9h18" />
-      <path d="M10 15h4" />
-      <path d="M8 15l-2 2m12-2l-2 2" opacity=".5" />
-    </symbol>
-    <symbol id="icon-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-      stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3" y="8" width="18" height="13" rx="2" />
-      <path d="M12 8v13M3 12h18" />
-      <path d="M7.5 6A2.5 2.5 0 0 1 12 6c0 2-2 2-4.5 2C6.5 8 6 7.5 6 7s.7-1 1.5-1z" />
-      <path d="M16.5 6A2.5 2.5 0 0 0 12 6c0 2 2 2 4.5 2 .5 0 1-.5 1-1s-.5-1-1-1z" />
-    </symbol>
-    <symbol id="icon-temple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-      stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 3l3 3-3 3-3-3 3-3z" />
-      <path d="M5 10l7-4 7 4" />
-      <path d="M4 10v10h16V10" />
-      <path d="M9 20v-6h6v6" />
-    </symbol>
-    <symbol id="icon-kerala" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-      stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 3c2 2 3 5 3 9 0 4-1 7-3 9" />
-      <path d="M12 3c-2 2-3 5-3 9 0 4 1 7 3 9" />
-      <path d="M8 6l4 2 4-2M7 10l5 2 5-2M6 14l6 2 6-2" />
-    </symbol>
-  </svg>
-  <!-- Top bar -->
-  <div class="bg-[#ddd0c9] text-slate-900 text-sm">
-    <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <span class="inline-flex items-center gap-2 opacity-90"><i data-lucide="phone"></i><span>+91 98765
-            43210</span></span>
-        <span class="hidden md:inline-flex items-center gap-2 opacity-90"><i
-            data-lucide="mail"></i><span>support@thirumenitraders.com</span></span>
-      </div>
-      <div class="hidden sm:flex items-center gap-2 opacity-90">
-        <svg class="h-4 w-4 text-kerala-green" aria-hidden="true">
-          <use href="#icon-kerala" />
-        </svg>
-        <span>Kerala Authentic • e-rituals products & services</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Nav -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
-    <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3 group">
-        <img src="images/logo.png" alt="THIRUMENI traders logo" class="h-10 w-10 object-contain" />
-        <div>
-          <div class="font-extrabold tracking-tight text-slate-900">THIRUMENI traders</div>
-          <div class="text-xs text-slate-500 -mt-1">Kerala E-Rituals</div>
-        </div>
-      </a>
-
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="#services" class="nav-link hover:text-kerala-green">Services</a>
-        <a href="#products" class="nav-link hover:text-kerala-green">Products</a>
-        <a href="#about" class="nav-link hover:text-kerala-green">About</a>
-        <a href="#contact" class="nav-link hover:text-kerala-green">Contact</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="#services"
-          class="hidden sm:inline-flex items-center gap-2 rounded-lg bg-kerala-green px-4 py-2 text-white shadow-soft hover:opacity-95">
-          <i data-lucide="shopping-bag"></i>
-          <span>Get Started</span>
-        </a>
-        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg border border-slate-200">
-          <i data-lucide="menu"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
-      <div class="mx-auto max-w-7xl px-4 py-3 flex flex-col gap-3">
-        <a href="#services" class="py-2">Services</a>
-        <a href="#products" class="py-2">Products</a>
-        <a href="#about" class="py-2">About</a>
-        <a href="#contact" class="py-2">Contact</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10 bg-[#faf5e9]"></div>
-    <!-- Subtle sacred motif: concentric circles -->
-    <svg class="pointer-events-none absolute -z-10 right-[-60px] top-[-40px] opacity-20" width="260" height="260"
-      viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="100" cy="100" r="96" stroke="#c7a028" stroke-opacity=".35" stroke-width="2" />
-      <circle cx="100" cy="100" r="72" stroke="#0b7d44" stroke-opacity=".25" stroke-width="2" />
-      <circle cx="100" cy="100" r="48" stroke="#c7a028" stroke-opacity=".35" stroke-width="2" />
-      <circle cx="100" cy="100" r="24" stroke="#0b7d44" stroke-opacity=".25" stroke-width="2" />
-    </svg>
-    <div class="mx-auto max-w-7xl px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <div
-          class="inline-flex items-center gap-2 rounded-full bg-white border border-amber-200 px-3 py-1 text-xs text-amber-700 shadow-soft">
-          <i data-lucide="sparkles" class="h-4 w-4"></i>
-          Technology embedded with Rituals
-        </div>
-        <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight tracking-tight uppercase">
-          <span class="block">Unleash the Potential of</span>
-          <span class="block">Faith with Our Products</span>
-        </h1>
-        <p class="mt-4 text-slate-700 md:text-lg">
-          Helping to satisfy your Rituals needs with our products and services
-          in a well-Organised <strong>Kerala-Tantrik Model</strong>
-        </p>
-        <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 reveal" data-animate>
-          <a href="#products"
-            class="inline-flex items-center justify-center gap-2 rounded-xl bg-kerala-green px-5 py-3 text-white shadow-soft hover:opacity-95">
-            <i data-lucide="shopping-cart"></i>
-            Buy a Product
-          </a>
-          <a href="#contact"
-            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-slate-800 hover:bg-white/60">
-            <i data-lucide="calendar"></i>
-            Rent a Product
-          </a>
-          <a href="#contact"
-            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-slate-800 hover:bg-white/60">
-            <i data-lucide="gift"></i>
-            Gift a Pooja
-          </a>
-          <a href="#contact"
-            class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-slate-800 hover:bg-white/60">
-            <i data-lucide="hands"></i>
-            Book a Ritual
-          </a>
-        </div>
-        <div class="mt-8 flex items-center gap-6 text-sm text-slate-600">
-          <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2"
-              class="text-kerala-green"></i>Authentic & curated</span>
-          <span class="inline-flex items-center gap-2"><i data-lucide="truck" class="text-kerala-green"></i>Pan-India
-            delivery</span>
-        </div>
-      </div>
-      <div class="relative reveal" data-animate>
-
-        <!-- Glow aura -->
-        <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-amber-400/20 blur-3xl"></div>
-
-        <!-- Image Card -->
-        <div class="relative overflow-hidden rounded-3xl shadow-soft">
-
-          <!-- Ritual Image -->
-          <img src="images/01.jpg" alt="Sacred homa kundam ritual" class="h-[420px] w-full object-cover object-center">
-
-          <!-- Dark sacred overlay -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-
-          <!-- Floating stats -->
-          <div class="absolute bottom-4 left-4 right-4 grid grid-cols-3 gap-3 text-white text-center">
-
-            <div class="rounded-xl bg-black/50 backdrop-blur bg-black/40 backdrop-blur ring-1 ring-white/15 py-3">
-              <div class="text-xl font-extrabold text-amber-300">500+</div>
-              <div class="text-xs uppercase tracking-wide opacity-80">Pooja Items</div>
-            </div>
-
-            <div class="rounded-xl bg-black/50 backdrop-blur bg-black/40 backdrop-blur ring-1 ring-white/15 py-3">
-              <div class="text-xl font-extrabold text-amber-300">10K+</div>
-              <div class="text-xs uppercase tracking-wide opacity-80">Happy Clients</div>
-            </div>
-
-            <div class="rounded-xl bg-black/50 backdrop-blur bg-black/40 backdrop-blur ring-1 ring-white/15 py-3">
-              <div class="text-xl font-extrabold text-amber-300">24×7</div>
-              <div class="text-xs uppercase tracking-wide opacity-80">Support</div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-    <!-- Gentle wave divider -->
-    <svg viewBox="0 0 1440 80" class="block w-full" aria-hidden="true">
-      <path fill="#ffffff" d="M0,64 C240,16 480,16 720,64 C960,112 1200,112 1440,64 L1440,80 L0,80 Z" />
-    </svg>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="mx-auto max-w-7xl px-4 py-16 md:py-24">
-    <div class="text-center max-w-3xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Services</h2>
-      <p class="mt-3 text-slate-600">Choose how you want to engage with our authentic offerings.</p>
-    </div>
-
-    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      <!-- Buy a Product -->
-      <div class="group rounded-2xl border p-6 hover:shadow-soft transition reveal" data-animate>
-        <div class="h-12 w-12 rounded-lg bg-kerala-green/10 text-kerala-green flex items-center justify-center mb-4">
-          <svg class="h-6 w-6" aria-hidden="true">
-            <use href="#icon-diya" />
-          </svg>
-        </div>
-        <h3 class="font-bold text-lg">Buy a Product</h3>
-        <p class="mt-1 text-sm text-slate-600">Purchase authentic pooja items for your daily rituals and special days —
-          diyas, brass lamps, idols, thali sets, and more.</p>
-        <a href="#products"
-          class="mt-4 inline-flex items-center justify-center gap-2 rounded-lg bg-kerala-green px-4 py-2 text-white text-sm">Browse
-          Products <i data-lucide="arrow-right"></i></a>
-      </div>
-
-      <!-- Rent a Product -->
-      <div class="group rounded-2xl border p-6 hover:shadow-soft transition reveal" data-animate>
-        <div class="h-12 w-12 rounded-lg bg-kerala-green/10 text-kerala-green flex items-center justify-center mb-4">
-          <svg class="h-6 w-6" aria-hidden="true">
-            <use href="#icon-rent" />
-          </svg>
-        </div>
-        <h3 class="font-bold text-lg">Rent a Product</h3>
-        <p class="mt-1 text-sm text-slate-600">Short-term rentals for pooja sets, brass lamps, and décor — perfect for
-          festivals, housewarming, or corporate events.</p>
-        <a href="#contact"
-          class="mt-4 inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-slate-700 text-sm hover:bg-slate-50">Check
-          Availability <i data-lucide="arrow-right"></i></a>
-      </div>
-
-      <!-- Gift a Pooja -->
-      <div class="group rounded-2xl border p-6 hover:shadow-soft transition reveal" data-animate>
-        <div class="h-12 w-12 rounded-lg bg-kerala-green/10 text-kerala-green flex items-center justify-center mb-4">
-          <svg class="h-6 w-6" aria-hidden="true">
-            <use href="#icon-gift" />
-          </svg>
-        </div>
-        <h3 class="font-bold text-lg">Gift a Pooja</h3>
-        <p class="mt-1 text-sm text-slate-600">Send blessings as a meaningful gift — for newly-wed couples, birthdays,
-          or a new home (e.g., Ganapathi homam for housewarming).</p>
-        <a href="#contact"
-          class="mt-4 inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-slate-700 text-sm hover:bg-slate-50">Send
-          a Gift <i data-lucide="arrow-right"></i></a>
-      </div>
-
-      <!-- 4th Service Placeholder -->
-      <div class="group rounded-2xl border p-6 hover:shadow-soft transition reveal" data-animate>
-        <div class="h-12 w-12 rounded-lg bg-kerala-green/10 text-kerala-green flex items-center justify-center mb-4">
-          <svg class="h-6 w-6" aria-hidden="true">
-            <use href="#icon-temple" />
-          </svg>
-        </div>
-        <h3 class="font-bold text-lg">Book a Ritual (Custom)</h3>
-        <p class="mt-1 text-sm text-slate-600">At-home or virtual rituals by experienced priests — Ganapathi Homam for a
-          new home, Navagraha, Lakshmi Pooja, and more.</p>
-        <a href="#contact"
-          class="mt-4 inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-slate-700 text-sm hover:bg-slate-50">Enquire
-          Now <i data-lucide="arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service Details -->
-  <section id="service-details" class="relative">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-white via-amber-50/40 to-white"></div>
-    <div class="mx-auto max-w-7xl px-4 py-16 md:py-24 space-y-10">
-      <!-- Buy -->
-      <div class="grid md:grid-cols-2 gap-8 items-center reveal" data-animate>
-        <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=1400&auto=format&fit=crop"
-            alt="Brass diyas and pooja setup" class="h-80 w-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/70 to-transparent"></div>
-        </div>
-        <div>
-          <div
-            class="inline-flex items-center gap-2 rounded-full bg-kerala-green/10 text-kerala-green px-3 py-1 text-xs">
-            <svg class="h-4 w-4" aria-hidden="true">
-              <use href="#icon-diya" />
-            </svg>
-            Buy a Product
-          </div>
-          <h3 class="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">Bring Home Authentic Pooja Essentials</h3>
-          <p class="mt-3 text-slate-700">Curated diyas, brass nilavilakku, idols, thali sets, sandalwood, incense and
-            more — sourced from trusted Kerala artisans.</p>
-          <ul class="mt-4 text-slate-700 text-sm space-y-2 list-disc pl-5">
-            <li>Daily pooja basics and festival specials</li>
-            <li>Quality-checked, safe packaging, pan-India delivery</li>
-          </ul>
-          <a href="#products"
-            class="mt-5 inline-flex items-center gap-2 rounded-lg bg-kerala-green px-4 py-2 text-white">Browse Products
-            <i data-lucide="arrow-right"></i></a>
-        </div>
-      </div>
-
-      <!-- Rent -->
-      <div class="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse reveal" data-animate>
-        <div class="order-2 md:order-1">
-          <div
-            class="inline-flex items-center gap-2 rounded-full bg-kerala-green/10 text-kerala-green px-3 py-1 text-xs">
-            <svg class="h-4 w-4" aria-hidden="true">
-              <use href="#icon-rent" />
-            </svg>
-            Rent a Product
-          </div>
-          <h3 class="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">Flexible Rentals for Ceremonies</h3>
-          <p class="mt-3 text-slate-700">Short-term rentals for complete pooja kits, large brass lamps, and décor.</p>
-          <ul class="mt-4 text-slate-700 text-sm space-y-2 list-disc pl-5">
-            <li>Festivals and temple events</li>
-            <li>Housewarming functions and corporate pujas</li>
-          </ul>
-          <a href="#contact"
-            class="mt-5 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2">Check Availability
-            <i data-lucide="arrow-right"></i></a>
-        </div>
-        <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1400&auto=format&fit=crop"
-            alt="Decor elements for ceremonies" class="h-80 w-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
-        </div>
-      </div>
-
-      <!-- Gift a Pooja -->
-      <div class="grid md:grid-cols-2 gap-8 items-center reveal" data-animate>
-        <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1400&auto=format&fit=crop"
-            alt="Blessings as a gift" class="h-80 w-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
-        </div>
-        <div>
-          <div
-            class="inline-flex items-center gap-2 rounded-full bg-kerala-green/10 text-kerala-green px-3 py-1 text-xs">
-            <svg class="h-4 w-4" aria-hidden="true">
-              <use href="#icon-gift" />
-            </svg>
-            Gift a Pooja
-          </div>
-          <h3 class="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">Gift Blessings for Life’s Milestones</h3>
-          <p class="mt-3 text-slate-700">Send a meaningful pooja as a gift — perfect for newly-weds, birthdays, or a new
-            home.</p>
-          <ul class="mt-4 text-slate-700 text-sm space-y-2 list-disc pl-5">
-            <li>Newly-wed couples, safe journeys, career success</li>
-            <li>Ganapathi Homam for a newly built house (Griha Pravesh)</li>
-          </ul>
-          <a href="#contact"
-            class="mt-5 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2">Send a Gift <i
-              data-lucide="arrow-right"></i></a>
-        </div>
-      </div>
-
-      <!-- Book a Ritual -->
-      <div class="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse reveal" data-animate>
-        <div class="order-2 md:order-1">
-          <div
-            class="inline-flex items-center gap-2 rounded-full bg-kerala-green/10 text-kerala-green px-3 py-1 text-xs">
-            <svg class="h-4 w-4" aria-hidden="true">
-              <use href="#icon-temple" />
-            </svg>
-            Book a Ritual (Custom)
-          </div>
-          <h3 class="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">Priest-led Rituals — At Home or Online
-          </h3>
-          <p class="mt-3 text-slate-700">Experienced priests guide the ceremony as per Kerala traditions with clear
-            instructions and materials list.</p>
-          <ul class="mt-4 text-slate-700 text-sm space-y-2 list-disc pl-5">
-            <li>Ganapathi Homam for new house or new beginnings</li>
-            <li>Navagraha, Lakshmi, and special festival poojas</li>
-          </ul>
-          <a href="#contact"
-            class="mt-5 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2">Enquire Now <i
-              data-lucide="arrow-right"></i></a>
-        </div>
-        <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=1400&auto=format&fit=crop"
-            alt="Traditional ritual in progress" class="h-80 w-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Products showcase -->
-  <section id="products" class="bg-slate-50 border-y">
-    <div class="mx-auto max-w-7xl px-4 py-16 md:py-24">
-      <div class="flex items-end justify-between gap-6">
-        <div>
-          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Featured Products</h2>
-          <p class="mt-3 text-slate-600">A glimpse of our bestsellers. Full catalog coming soon.</p>
-        </div>
-        <a href="#contact"
-          class="hidden sm:inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 hover:bg-white">Request
-          Catalog <i data-lucide="file-text"></i></a>
-      </div>
-
-      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <!-- Card template (repeat) -->
-        <div class="rounded-2xl border bg-white overflow-hidden hover:shadow-soft hover:-translate-y-1 transition">
-          <img src="https://images.unsplash.com/photo-1619347276291-0e6cde9b37f0?q=80&w=1200&auto=format&fit=crop"
-            alt="Brass Lamp" class="h-44 w-full object-cover">
-          <div class="p-4">
-            <div class="font-semibold">Traditional Brass Nilavilakku</div>
-            <div class="text-sm text-slate-600 mt-1">Authentic brass lamp for auspicious occasions.</div>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-bold">₹2,499</span>
-              <button class="inline-flex items-center gap-2 rounded-lg bg-kerala-green px-3 py-2 text-white text-sm">Add
-                <i data-lucide="plus"></i></button>
-            </div>
-          </div>
-        </div>
-
-        <div class="rounded-2xl border bg-white overflow-hidden hover:shadow-soft hover:-translate-y-1 transition">
-          <img src="https://images.unsplash.com/photo-1584985592385-6f00964908df?q=80&w=1200&auto=format&fit=crop"
-            alt="Pooja Thali" class="h-44 w-full object-cover">
-          <div class="p-4">
-            <div class="font-semibold">Premium Pooja Thali Set</div>
-            <div class="text-sm text-slate-600 mt-1">Includes diya, incense holder, and katori set.</div>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-bold">₹1,299</span>
-              <button class="inline-flex items-center gap-2 rounded-lg bg-kerala-green px-3 py-2 text-white text-sm">Add
-                <i data-lucide="plus"></i></button>
-            </div>
-          </div>
-        </div>
-
-        <div class="rounded-2xl border bg-white overflow-hidden hover:shadow-soft hover:-translate-y-1 transition">
-          <img src="https://images.unsplash.com/photo-1523419409543-a7e2a4e44406?q=80&w=1200&auto=format&fit=crop"
-            alt="Sandalwood" class="h-44 w-full object-cover">
-          <div class="p-4">
-            <div class="font-semibold">Pure Sandalwood Powder</div>
-            <div class="text-sm text-slate-600 mt-1">Fragrant and sacred; sourced responsibly.</div>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-bold">₹799</span>
-              <button class="inline-flex items-center gap-2 rounded-lg bg-kerala-green px-3 py-2 text-white text-sm">Add
-                <i data-lucide="plus"></i></button>
-            </div>
-          </div>
-        </div>
-
-        <div class="rounded-2xl border bg-white overflow-hidden hover:shadow-soft hover:-translate-y-1 transition">
-          <img src="https://images.unsplash.com/photo-1622519407651-eb5d4f1463d2?q=80&w=1200&auto=format&fit=crop"
-            alt="Incense" class="h-44 w-full object-cover">
-          <div class="p-4">
-            <div class="font-semibold">Natural Incense Sticks</div>
-            <div class="text-sm text-slate-600 mt-1">Hand-rolled, toxin-free, long-lasting aroma.</div>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-bold">₹299</span>
-              <button class="inline-flex items-center gap-2 rounded-lg bg-kerala-green px-3 py-2 text-white text-sm">Add
-                <i data-lucide="plus"></i></button>
-            </div>
-          </div>
-        </div>
-        <!-- Kerala ritual items -->
-        <div class="rounded-2xl border bg-white overflow-hidden hover:shadow-soft hover:-translate-y-1 transition">
-          <img src="https://images.unsplash.com/photo-1615557966837-52d69f96455c?q=80&w=1400&auto=format&fit=crop"
-            alt="Brass Uruli Bowl" class="h-44 w-full object-cover">
-          <div class="p-4">
-            <div class="font-semibold">Brass Uruli Bowl</div>
-            <div class="text-sm text-slate-600 mt-1">Traditional Kerala uruli for flowers and auspicious décor.</div>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-bold">₹1,899</span>
-              <button class="inline-flex items-center gap-2 rounded-lg bg-kerala-green px-3 py-2 text-white text-sm">Add
-                <i data-lucide="plus"></i></button>
-            </div>
-          </div>
-        </div>
-        <div class="rounded-2xl border bg-white overflow-hidden hover:shadow-soft hover:-translate-y-1 transition">
-          <img src="https://images.unsplash.com/photo-1601308589454-529f3dcd89e8?q=80&w=1400&auto=format&fit=crop"
-            alt="Nettipattam Elephant Caparison" class="h-44 w-full object-cover">
-          <div class="p-4">
-            <div class="font-semibold">Nettipattam (Caparison)</div>
-            <div class="text-sm text-slate-600 mt-1">Iconic Kerala temple décor for festive ambience.</div>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-bold">₹3,499</span>
-              <button class="inline-flex items-center gap-2 rounded-lg bg-kerala-green px-3 py-2 text-white text-sm">Add
-                <i data-lucide="plus"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-8 text-center">
-        <a href="#contact"
-          class="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 hover:bg-white">See More <i
-            data-lucide="arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
-  <!-- Gallery -->
-  <section id="gallery" class="bg-[#faf5e9] border-y">
-    <div class="mx-auto max-w-7xl px-4 py-16 md:py-24">
-
-      <div class="text-center max-w-3xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
-          Sacred Ritual Gallery
-        </h2>
-        <p class="mt-3 text-slate-600">
-          Real moments from Kerala rituals, poojas, and sacred ceremonies.
-        </p>
-      </div>
-
-      <!-- Masonry-like Grid -->
-      <div class="mt-12 columns-1 sm:columns-2 lg:columns-3 gap-6">
-
-        <!-- Helper template:
-  Copy-paste one block and change image name only
-  -->
-
-        <!-- 01 -->
-
-
-        <!-- 02 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/02.jpg" alt="Traditional deepam aarathi ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 03 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/03.jpg" alt="Kerala pooja items arranged traditionally"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 04 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/04.jpg" alt="Kerala ritual ceremony moment"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 05 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/05.jpg" alt="Sacred pooja setup"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 06 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/06.jpg" alt="Traditional Kerala deepam lighting"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 07 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/07.jpg" alt="Kerala ritual atmosphere"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 08 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/08.jpg" alt="Sacred pooja items"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 10 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/10.jpg" alt="Kerala festival ritual"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 11 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/11.jpg" alt="Traditional homam ritual"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 12 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/12.jpg" alt="Kerala pooja ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 13 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/13.jpg" alt="Sacred ritual fire offering"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 14 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/14.jpg" alt="Kerala temple ritual"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 15 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/15.jpg" alt="Traditional pooja lighting"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 16 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/16.jpg" alt="Sacred offerings in ritual"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 17 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/17.jpg" alt="Kerala homam ritual fire"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 18 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/18.jpg" alt="Traditional pooja decor"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 19 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/19.jpg" alt="Kerala sacred ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 20 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/20.jpg" alt="Ritual offerings and lamps"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 21 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/21.jpg" alt="Traditional Kerala pooja"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 22 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/22.jpg" alt="Sacred ritual flames"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 23 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/23.jpg" alt="Kerala temple pooja"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 24 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/24.jpg" alt="Traditional homam ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 25 -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/25.jpg" alt="Kerala ritual moment"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Filenames with spaces MUST be URL encoded -->
-        <!-- 26 variations -->
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26.jpg" alt="Kerala pooja ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(2).jpg" alt="Kerala ritual fire moment"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(3).jpg" alt="Sacred lamp ritual"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(4).jpg" alt="Traditional Kerala pooja lighting"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(6).jpg" alt="Kerala homam flames"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(7).jpg" alt="Sacred ritual atmosphere"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(8).jpg" alt="Kerala pooja fire offering"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/26%20(9).jpg" alt="Traditional deepam ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/27.jpg" alt="Traditional deepam ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/28.jpg" alt="Traditional deepam ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-        <div class="mb-6 break-inside-avoid gallery-item">
-          <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-            <img src="images/29.jpg" alt="Traditional deepam ceremony"
-              class="w-full object-cover cursor-zoom-in transition duration-700 hover:scale-110" loading="lazy">
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="mx-auto max-w-7xl px-4 py-16 md:py-24">
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Rooted in Tradition, Delivered with Care</h2>
-        <p class="mt-4 text-slate-600">We are a Kerala-based provider of e-rituals products and services, focused on
-          authenticity and convenience. Our team works closely with experienced priests and artisans to curate products
-          that meet traditional standards.</p>
-        <div class="mt-6 grid grid-cols-2 gap-4 text-sm">
-          <div class="rounded-xl border p-4">
-            <div class="font-bold">Authentic Sourcing</div>
-            <div class="text-slate-600 mt-1">From trusted Kerala artisans and suppliers.</div>
-          </div>
-          <div class="rounded-xl border p-4">
-            <div class="font-bold">Ritual Guidance</div>
-            <div class="text-slate-600 mt-1">Optional priest-led assistance for key ceremonies.</div>
-          </div>
-        </div>
-      </div>
-      <div class="relative">
-        <div class="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-amber-200/50 blur-2xl"></div>
-        <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1400&auto=format&fit=crop"
-            alt="Craftsmanship" class="h-80 w-full object-cover">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="bg-gradient-to-br from-white to-amber-50 border-y">
-    <div class="mx-auto max-w-7xl px-4 py-16 md:py-24">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center">What Customers Say</h2>
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl border bg-white p-6 shadow-soft">
-          <div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-full bg-kerala-green/10 flex items-center justify-center text-kerala-green"><i
-                data-lucide='user'></i></div>
-            <div>
-              <div class="font-semibold">Anjana K</div>
-              <div class="text-xs text-slate-500">Kochi</div>
-            </div>
-          </div>
-          <p class="mt-4 text-slate-700">Great quality and prompt delivery. The brass lamp was exactly as described!</p>
-        </div>
-        <div class="rounded-2xl border bg-white p-6 shadow-soft">
-          <div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-full bg-kerala-green/10 flex items-center justify-center text-kerala-green"><i
-                data-lucide='user'></i></div>
-            <div>
-              <div class="font-semibold">Radhakrishnan P</div>
-              <div class="text-xs text-slate-500">Thrissur</div>
-            </div>
-          </div>
-          <p class="mt-4 text-slate-700">Loved the Gift a Pooja service—such a thoughtful way to send blessings.</p>
-        </div>
-        <div class="rounded-2xl border bg-white p-6 shadow-soft">
-          <div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-full bg-kerala-green/10 flex items-center justify-center text-kerala-green"><i
-                data-lucide='user'></i></div>
-            <div>
-              <div class="font-semibold">Meera S</div>
-              <div class="text-xs text-slate-500">Bengaluru</div>
-            </div>
-          </div>
-          <p class="mt-4 text-slate-700">Their rental kits made our Onam pooja setup effortless. Highly recommend!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="mx-auto max-w-7xl px-4 py-16 md:py-24">
-    <div class="grid md:grid-cols-2 gap-10">
-      <div>
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Contact Us</h2>
-        <p class="mt-3 text-slate-600">Tell us what you need and we’ll get back within 24 hours.</p>
-
-        <div class="mt-6 space-y-4 text-sm">
-          <div class="flex items-center gap-3"><i data-lucide="phone" class="text-kerala-green"></i> +91 98765 43210
-          </div>
-          <div class="flex items-center gap-3"><i data-lucide="mail" class="text-kerala-green"></i>
-            support@thirumenitraders.com</div>
-          <div class="flex items-center gap-3"><i data-lucide="map-pin" class="text-kerala-green"></i> Trivandrum,
-            Kerala, India</div>
-        </div>
-      </div>
-
-      <form class="rounded-2xl border p-6 bg-white shadow-soft">
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div>
-            <label class="text-sm font-medium">Name</label>
-            <input type="text" placeholder="Your full name"
-              class="mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kerala-green" />
-          </div>
-          <div>
-            <label class="text-sm font-medium">Email</label>
-            <input type="email" placeholder="name@example.com"
-              class="mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kerala-green" />
-          </div>
-          <div class="sm:col-span-2">
-            <label class="text-sm font-medium">Service</label>
-            <select
-              class="mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kerala-green">
-              <option>Buy a Product</option>
-              <option>Rent a Product</option>
-              <option>Gift a Pooja</option>
-              <option>Book a Ritual (Custom)</option>
-            </select>
-          </div>
-          <div class="sm:col-span-2">
-            <label class="text-sm font-medium">Message</label>
-            <textarea rows="4" placeholder="Tell us more..."
-              class="mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kerala-green"></textarea>
-          </div>
-        </div>
-        <button type="button"
-          class="mt-4 inline-flex items-center gap-2 rounded-lg bg-kerala-green px-5 py-3 text-white">Send Enquiry <i
-            data-lucide="send"></i></button>
-        <p class="mt-2 text-xs text-slate-500">This is a demo form for showcasing. Hook it to your backend later.</p>
-      </form>
-    </div>
-  </section>
-
-  <!-- Mobile quick actions spacer -->
-  <div class="h-16 md:hidden"></div>
-
-  <!-- Mobile sticky quick actions -->
-  <div class="fixed bottom-0 left-0 right-0 z-40 md:hidden border-t bg-white/95 backdrop-blur">
-    <div class="mx-auto max-w-7xl px-3 py-2 grid grid-cols-4 text-xs">
-      <a href="#products" class="flex flex-col items-center justify-center gap-1 text-slate-700">
-        <i data-lucide="shopping-cart" class="h-5 w-5"></i>
-        <span>Buy</span>
-      </a>
-      <a href="#contact" class="flex flex-col items-center justify-center gap-1 text-slate-700">
-        <i data-lucide="calendar" class="h-5 w-5"></i>
-        <span>Rent</span>
-      </a>
-      <a href="#contact" class="flex flex-col items-center justify-center gap-1 text-slate-700">
-        <i data-lucide="gift" class="h-5 w-5"></i>
-        <span>Gift</span>
-      </a>
-      <a href="#contact" class="flex flex-col items-center justify-center gap-1 text-slate-700">
-        <i data-lucide="hands" class="h-5 w-5"></i>
-        <span>Book</span>
-      </a>
-    </div>
-  </div>
-  <!-- Lightbox -->
-  <!-- Lightbox -->
-  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm">
-
-    <!-- Close -->
-    <button id="lightboxClose" class="absolute top-5 right-5 text-white text-3xl font-light hover:opacity-70">
-      ✕
-    </button>
-
-    <!-- Prev -->
-    <button id="lightboxPrev"
-      class="absolute left-4 md:left-8 text-white text-5xl opacity-70 hover:opacity-100 select-none">
-      ‹
-    </button>
-
-    <!-- Image -->
-    <img id="lightboxImg" class="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl animate-lightbox" />
-
-    <!-- Next -->
-    <button id="lightboxNext"
-      class="absolute right-4 md:right-8 text-white text-5xl opacity-70 hover:opacity-100 select-none">
-      ›
-    </button>
-  </div>
-
-
-  <footer class="border-t">
-    <div class="mx-auto max-w-7xl px-4 py-10 grid md:grid-cols-4 gap-8 text-sm">
-      <div>
-        <div class="font-extrabold text-kerala-green">Thirumeni Traders</div>
-        <p class="mt-2 text-slate-600">Kerala e-rituals products & services with authenticity and care.</p>
-      </div>
-      <div>
-        <div class="font-semibold">Quick Links</div>
-        <div class="mt-2 space-y-2">
-          <a href="#services" class="block hover:text-kerala-green">Services</a>
-          <a href="#products" class="block hover:text-kerala-green">Products</a>
-          <a href="#about" class="block hover:text-kerala-green">About</a>
-          <a href="#contact" class="block hover:text-kerala-green">Contact</a>
-        </div>
-      </div>
-      <div>
-        <div class="font-semibold">Services</div>
-        <div class="mt-2 space-y-2">
-          <span class="block">Buy a Product</span>
-          <span class="block">Rent a Product</span>
-          <span class="block">Gift a Pooja</span>
-          <span class="block">Book a Ritual (Custom)</span>
-        </div>
-      </div>
-      <div>
-        <div class="font-semibold">Follow</div>
-        <div class="mt-2 flex gap-3 text-slate-600">
-          <a href="#" aria-label="Instagram" class="hover:text-kerala-green"><i data-lucide="instagram"></i></a>
-          <a href="#" aria-label="Facebook" class="hover:text-kerala-green"><i data-lucide="facebook"></i></a>
-          <a href="#" aria-label="Twitter" class="hover:text-kerala-green"><i data-lucide="twitter"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="border-t py-4 text-center text-xs text-slate-500">© <span id="year"></span> Thirumeni Traders. All
-      rights reserved.</div>
-  </footer>
-
-  <script>
-    // Icons
-    lucide.createIcons();
-
-    // Mobile menu toggle
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Reveal on scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
-     const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const closeBtn = document.getElementById('lightboxClose');
-  const prevBtn = document.getElementById('lightboxPrev');
-  const nextBtn = document.getElementById('lightboxNext');
-
-  const galleryImages = Array.from(
-    document.querySelectorAll('#gallery img')
-  );
-
-  let currentIndex = 0;
-
-  function openLightbox(index) {
-    currentIndex = index;
-    lightboxImg.src = galleryImages[index].src;
-    lightboxImg.alt = galleryImages[index].alt;
-    lightbox.classList.remove('hidden');
-    lightbox.classList.add('flex');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.classList.add('hidden');
-    lightbox.classList.remove('flex');
-    document.body.style.overflow = '';
-  }
-
-  function showNext() {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    openLightbox(currentIndex);
-  }
-
-  function showPrev() {
-    currentIndex =
-      (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    openLightbox(currentIndex);
-  }
-
-  // Image click
-  galleryImages.forEach((img, index) => {
-    img.addEventListener('click', () => openLightbox(index));
-  });
-
-  // Buttons
-  closeBtn.addEventListener('click', closeLightbox);
-  nextBtn.addEventListener('click', showNext);
-  prevBtn.addEventListener('click', showPrev);
-
-  // Background click
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  // Keyboard support
-  document.addEventListener('keydown', (e) => {
-    if (lightbox.classList.contains('hidden')) return;
-
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-  });
-  </script>
-
-
-</body>
-
->>>>>>> 676caf5bbd3fe640d59f8a6c34fc905bf5bb8138
-xImg.src = galleryImages[index].src;
-    lightboxImg.alt = galleryImages[index].alt;
-    lightbox.classList.remove('hidden');
-    lightbox.classList.add('flex');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.classList.add('hidden');
-    lightbox.classList.remove('flex');
-    document.body.style.overflow = '';
-  }
-
-  function showNext() {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    openLightbox(currentIndex);
-  }
-
-  function showPrev() {
-    currentIndex =
-      (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    openLightbox(currentIndex);
-  }
-
-  // Image click
-  galleryImages.forEach((img, index) => {
-    img.addEventListener('click', () => openLightbox(index));
-  });
-
-  // Buttons
-  closeBtn.addEventListener('click', closeLightbox);
-  nextBtn.addEventListener('click', showNext);
-  prevBtn.addEventListener('click', showPrev);
-
-  // Background click
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  // Keyboard support
-  document.addEventListener('keydown', (e) => {
-    if (lightbox.classList.contains('hidden')) return;
-
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-  });
-  </script>
 
 
 </body>
