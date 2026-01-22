@@ -514,10 +514,39 @@
             masked-image">
 
         <!-- Blurred background clone (bigger + stronger) -->
-        <img src="images/Mask.png" alt="Sacred homa kundam ritual" class="relative h-[260px] sm:h-[360px] md:h-[420px]
-         w-full object-cover object-right
-         transition-transform duration-[6000ms] ease-out
-         group-hover:scale-105">
+        <div class="group relative h-[260px] sm:h-[360px] md:h-[420px] overflow-hidden rounded-3xl shadow-soft">
+
+          <!-- Image -->
+          <img src="images/Mask.png" alt="Sacred homa kundam ritual" class="h-full w-full object-cover object-right
+           transition-transform duration-[6000ms] ease-out
+           group-hover:scale-105" />
+
+          <!-- Soft light overlay (same feel as contact image) -->
+          <div class="absolute inset-0
+              bg-gradient-to-b
+              from-white/30
+              via-white/10
+              to-white/80">
+          </div>
+
+          <!-- Edge vignette (adds depth, premium look) -->
+          <div class="absolute inset-0
+              bg-gradient-to-r
+              from-black/20
+              via-transparent
+              to-black/10">
+          </div>
+
+          <!-- Optional warm ritual glow -->
+          <div class="absolute inset-0
+              bg-gradient-to-t
+              from-amber-900/15
+              via-transparent
+              to-transparent">
+          </div>
+
+        </div>
+
 
         <!-- Edge vignette -->
         <div class="absolute inset-0 pointer-events-none">
@@ -642,240 +671,264 @@
 
   <!-- Service Details -->
   <section id="service-details" class="relative">
+    <!-- Section background -->
     <div class="absolute inset-0 -z-10 bg-gradient-to-b from-white via-amber-50/40 to-white"></div>
+
+    <!-- Container -->
     <div class="mx-auto max-w-7xl px-4 py-16 md:py-24 space-y-10">
-      <!-- Buy -->
-      <div class="grid md:grid-cols-2 gap-8 items-center reveal" data-animate>
-        <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="images/home_pooja.png" alt="Brass diyas and pooja setup" class="h-80 w-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/70 to-transparent"></div>
-        </div>
-        <div>
-          <div
-            class="inline-flex items-center gap-2 rounded-full bg-kerala-green/10 text-kerala-green px-3 py-1 text-xs">
-            <svg class="h-4 w-4" aria-hidden="true">
-              <use href="#icon-diya" />
-            </svg>
-            Buy a Product
+
+      <!-- Buy a Product -->
+      <div class="rounded-3xl bg-[#f8faf7] p-6 md:p-10">
+        <div class="grid md:grid-cols-2 gap-8 items-center reveal" data-animate>
+          <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
+            <img src="images/home_pooja.png" alt="Brass diyas and pooja setup" class="h-80 w-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/70 to-transparent"></div>
           </div>
-          <h3 class="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">Bring Home Authentic Pooja Essentials</h3>
-          <p class="mt-3 text-slate-700">Curated diyas, brass nilavilakku, idols, thali sets, sandalwood, incense and
-            more — sourced from trusted Kerala artisans.</p>
-          <ul class="mt-4 text-slate-700 text-sm space-y-2 list-disc pl-5">
-            <li>Daily pooja basics and festival specials</li>
-            <li>Quality-checked, safe packaging, pan-India delivery</li>
-          </ul>
-          <a href="#products"
-            class="mt-5 inline-flex items-center gap-2 rounded-lg bg-kerala-green px-4 py-2 text-white">Browse Products
-            <i data-lucide="arrow-right"></i></a>
+          <div>
+            <div
+              class="inline-flex items-center gap-2 rounded-full bg-kerala-green/10 text-kerala-green px-3 py-1 text-xs">
+              <svg class="h-4 w-4">
+                <use href="#icon-diya" />
+              </svg>
+              Buy a Product
+            </div>
+            <h3 class="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">
+              Bring Home Authentic Pooja Essentials
+            </h3>
+            <p class="mt-3 text-slate-700">
+              Curated diyas, brass nilavilakku, idols, thali sets, sandalwood, incense and more — sourced from trusted
+              Kerala artisans.
+            </p>
+            <ul class="mt-4 text-slate-700 text-sm space-y-2 list-disc pl-5">
+              <li>Daily pooja basics and festival specials</li>
+              <li>Quality-checked, safe packaging, pan-India delivery</li>
+            </ul>
+            <a href="#products"
+              class="mt-5 inline-flex items-center gap-2 rounded-lg bg-kerala-green px-4 py-2 text-white">
+              Browse Products <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
 
-      <!-- Rent -->
-      <div class="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse reveal" data-animate>
-        <div class="order-2 md:order-1">
-          <div
-            class="inline-flex items-center gap-2 rounded-full bg-kerala-green/10 text-kerala-green px-3 py-1 text-xs">
-            <svg class="h-4 w-4" aria-hidden="true">
-              <use href="#icon-rent" />
-            </svg>
-            Rent a Product
+      <!-- Rent a Product -->
+      <div class="rounded-3xl bg-[#fffaf2] p-6 md:p-10">
+        <div class="grid md:grid-cols-2 gap-8 items-center reveal" data-animate>
+          <div class="order-2 md:order-1">
+            <div
+              class="inline-flex items-center gap-2 rounded-full bg-kerala-green/10 text-kerala-green px-3 py-1 text-xs">
+              <svg class="h-4 w-4">
+                <use href="#icon-rent" />
+              </svg>
+              Rent a Product
+            </div>
+            <h3 class="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">
+              Flexible Rentals for Sacred Ceremonies
+            </h3>
+            <p class="mt-3 text-slate-700">
+              Celebrate every ritual with ease and elegance through our pooja item rental service. Authentic,
+              well-maintained pooja essentials delivered on time.
+            </p>
+            <ul class="mt-4 text-slate-700 text-sm space-y-2 list-disc pl-5">
+              <li>Festivals, griha pravesh, and special poojas</li>
+              <li>Complete, well-organised pooja kits</li>
+            </ul>
+            <a href="#contact" class="mt-5 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2">
+              Check Availability <i data-lucide="arrow-right"></i>
+            </a>
           </div>
-          <h3 class="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">Flexible Rentals for Sacred Ceremonies
-          </h3>
-          <p class="mt-3 text-slate-700">Celebrate every ritual with ease and elegance through our pooja item rental
-            service.
-            We provide beautifully maintained, authentic pooja essentials on rent—so you can
-            perform sacred ceremonies without the burden of buying, storing, or maintaining items.
-          </p>
-          <ul class="mt-4 text-slate-700 text-sm space-y-2 list-disc pl-5">
-            <li>Ideal for festivals, griha pravesh, and special poojas</li>
-            <li>Timely delivery with complete, well-organised pooja kits</li>
-          </ul>
-          <a href="#contact"
-            class="mt-5 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2">Check Availability
-            <i data-lucide="arrow-right"></i></a>
-        </div>
-        <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="images/rental.jpg" alt="Decor elements for ceremonies" class="h-80 w-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
+          <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl bg-white shadow-soft">
+            <img src="images/rental.jpg" alt="Decor elements for ceremonies" class="h-80 w-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
+          </div>
         </div>
       </div>
 
       <!-- Gift a Pooja -->
-      <div class="grid md:grid-cols-2 gap-8 items-center reveal" data-animate>
-        <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="images/gift_pooja.png" alt="Blessings as a gift" class="h-80 w-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
-        </div>
-        <div>
-          <div
-            class="inline-flex items-center gap-2 rounded-full bg-kerala-green/10 text-kerala-green px-3 py-1 text-xs">
-            <svg class="h-4 w-4" aria-hidden="true">
-              <use href="#icon-gift" />
-            </svg>
-            Gift a Pooja
+      <div class="rounded-3xl bg-[#f7f3ff] p-6 md:p-10">
+        <div class="grid md:grid-cols-2 gap-8 items-center reveal" data-animate>
+          <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
+            <img src="images/gift_pooja.png" alt="Blessings as a gift" class="h-80 w-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
           </div>
-          <h3 class="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">Gift a Pooja — A Thoughtful Offering of
-            Blessings
-          </h3>
-          <p class="mt-3 text-slate-700">Rooted in mindfulness and devotion, our pooja gifting service offers a
-            meaningful way
-            to share spiritual care. By gifting a personalized Hindu ritual, you are not just
-            offering a service—you are gifting peace of mind and the joy of faith without
-            logistical stress.
-          </p>
-          <ul class="mt-4 text-slate-700 text-sm space-y-2 list-disc pl-5">
-            <li>A unique spiritual gift for weddings, birthdays, and new beginnings</li>
-            <li>Personalized rituals organised with care and authenticity</li>
-          </ul>
-          <a href="#contact"
-            class="mt-5 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2">Send a Gift <i
-              data-lucide="arrow-right"></i></a>
+          <div>
+            <div
+              class="inline-flex items-center gap-2 rounded-full bg-kerala-green/10 text-kerala-green px-3 py-1 text-xs">
+              <svg class="h-4 w-4">
+                <use href="#icon-gift" />
+              </svg>
+              Gift a Pooja
+            </div>
+            <h3 class="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">
+              Gift a Pooja — A Thoughtful Offering of Blessings
+            </h3>
+            <p class="mt-3 text-slate-700">
+              A meaningful spiritual gift that brings peace, devotion, and freedom from logistical stress.
+            </p>
+            <ul class="mt-4 text-slate-700 text-sm space-y-2 list-disc pl-5">
+              <li>Perfect for weddings, birthdays, and new beginnings</li>
+              <li>Personalized rituals organised with care</li>
+            </ul>
+            <a href="#contact" class="mt-5 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2">
+              Send a Gift <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- Book a Ritual -->
-      <div class="grid md:grid-cols-2 gap-8 items-center md:flex-row-reverse reveal" data-animate>
-        <div class="order-2 md:order-1">
-          <div
-            class="inline-flex items-center gap-2 rounded-full bg-kerala-green/10 text-kerala-green px-3 py-1 text-xs">
-            <svg class="h-4 w-4" aria-hidden="true">
-              <use href="#icon-temple" />
-            </svg>
-            Book a Ritual (Custom)
+      <div class="rounded-3xl bg-[#f6fbf9] p-6 md:p-10">
+        <div class="grid md:grid-cols-2 gap-8 items-center reveal" data-animate>
+          <div class="order-2 md:order-1">
+            <div
+              class="inline-flex items-center gap-2 rounded-full bg-kerala-green/10 text-kerala-green px-3 py-1 text-xs">
+              <svg class="h-4 w-4">
+                <use href="#icon-temple" />
+              </svg>
+              Book a Ritual (Custom)
+            </div>
+            <h3 class="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">
+              Book Authentic Rituals — At Home or Online
+            </h3>
+            <p class="mt-3 text-slate-700">
+              Seamlessly connect with certified priests for authentic Kerala rituals — at home or virtually.
+            </p>
+            <ul class="mt-4 text-slate-700 text-sm space-y-2 list-disc pl-5">
+              <li>Certified priests following traditional practices</li>
+              <li>Ideal for families, professionals, and the diaspora</li>
+            </ul>
+            <a href="#contact" class="mt-5 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2">
+              Enquire Now <i data-lucide="arrow-right"></i>
+            </a>
           </div>
-          <h3 class="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">Book Authentic Rituals — At Home or Online
-
-          </h3>
-          <p class="mt-3 text-slate-700">We modernize spiritual traditions through a seamless digital platform that
-            connects
-            devotees with certified priests and ceremonial experts. With transparent pricing,
-            regional language support, and trusted practitioners, sacred rituals are performed
-            with authenticity and precision—right from your home or virtually.
-          </p>
-          <ul class="mt-4 text-slate-700 text-sm space-y-2 list-disc pl-5">
-            <li>Certified priests following traditional Kerala practices </li>
-            <li>Convenient booking for families, professionals, and the diaspora</li>
-          </ul>
-          <a href="#contact"
-            class="mt-5 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2">Enquire Now <i
-              data-lucide="arrow-right"></i></a>
-        </div>
-        <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="images/book.png" alt="Traditional ritual in progress" class="h-80 w-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
+          <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl bg-white shadow-soft">
+            <img src="images/book.png" alt="Traditional ritual in progress" class="h-80 w-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
+
 
   <!-- Products showcase -->
-  <section id="products" class="bg-slate-50 border-y">
+  <section id="products" class="relative overflow-hidden">
+
+    <!-- Soft canvas background -->
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[#f9faf7] via-[#fdfaf3] to-white"></div>
+
+    <!-- Decorative accent -->
+    <div class="absolute left-0 top-24 h-[70%] w-2 bg-kerala-green/20 rounded-r-full"></div>
+
     <div class="mx-auto max-w-7xl px-4 py-16 md:py-24">
-      <div class="flex items-end justify-between gap-6">
+
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
         <div>
-          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Featured Products</h2>
-          <p class="mt-3 text-slate-600">A glimpse of our bestsellers. Full catalog coming soon.</p>
+          <span
+            class="inline-block mb-2 rounded-full bg-kerala-green/10 text-kerala-green px-4 py-1 text-xs font-medium">
+            Curated Collection
+          </span>
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+            Featured Products
+          </h2>
+          <p class="mt-2 text-slate-600 max-w-xl">
+            Authentic Kerala ritual essentials, handpicked for purity, tradition, and elegance.
+          </p>
         </div>
+
         <a href="#contact"
-          class="hidden sm:inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 hover:bg-white">Request
-          Catalog <i data-lucide="file-text"></i></a>
+          class="inline-flex items-center gap-2 rounded-full border border-slate-300 px-5 py-2 text-sm hover:bg-white">
+          Request Catalog <i data-lucide="file-text" class="h-4 w-4"></i>
+        </a>
       </div>
 
-      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <!-- Card template (repeat) -->
-        <div class="rounded-2xl border bg-white overflow-hidden hover:shadow-soft hover:-translate-y-1 transition">
-          <img src="https://images.unsplash.com/photo-1619347276291-0e6cde9b37f0?q=80&w=1200&auto=format&fit=crop"
-            alt="Brass Lamp" class="h-44 w-full object-cover">
-          <div class="p-4">
-            <div class="font-semibold">Traditional Brass Nilavilakku</div>
-            <div class="text-sm text-slate-600 mt-1">Authentic brass lamp for auspicious occasions.</div>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-bold">₹2,499</span>
-              <button class="inline-flex items-center gap-2 rounded-lg bg-kerala-green px-3 py-2 text-white text-sm">Add
-                <i data-lucide="plus"></i></button>
+      <!-- Product Board -->
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
+        <!-- CARD -->
+        <div
+          class="group relative rounded-2xl bg-white p-4 shadow-soft hover:shadow-xl transition hover:-translate-y-1">
+          <div class="relative overflow-hidden rounded-xl">
+            <img src="images/nilavilaku.png"
+              class="h-40 w-full object-cover transition duration-500 group-hover:scale-105" alt="Nilavilakku">
+          </div>
+
+          <div class="pt-4 space-y-2">
+            <h3 class="font-semibold text-slate-900 leading-tight">
+              Traditional Brass Nilavilakku
+            </h3>
+            <p class="text-sm text-slate-500">
+              Classic Kerala lamp for daily pooja
+            </p>
+
+            <div class="flex items-center justify-between pt-3">
+              <span
+                class="inline-flex items-center rounded-full bg-amber-100 text-amber-700 px-3 py-1 text-sm font-semibold">
+                ₹2,499
+              </span>
+              <button class="rounded-full bg-kerala-green px-4 py-2 text-xs font-medium text-white hover:opacity-90">
+                Add
+              </button>
             </div>
           </div>
         </div>
 
-        <div class="rounded-2xl border bg-white overflow-hidden hover:shadow-soft hover:-translate-y-1 transition">
-          <img src="https://images.unsplash.com/photo-1584985592385-6f00964908df?q=80&w=1200&auto=format&fit=crop"
-            alt="Pooja Thali" class="h-44 w-full object-cover">
-          <div class="p-4">
-            <div class="font-semibold">Premium Pooja Thali Set</div>
-            <div class="text-sm text-slate-600 mt-1">Includes diya, incense holder, and katori set.</div>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-bold">₹1,299</span>
-              <button class="inline-flex items-center gap-2 rounded-lg bg-kerala-green px-3 py-2 text-white text-sm">Add
-                <i data-lucide="plus"></i></button>
+        <!-- CARD -->
+        <div class="group relative rounded-2xl bg-white p-4 shadow-soft hover:shadow-xl transition">
+          <img src="images/thali.png" class="h-40 w-full object-cover rounded-xl" alt="Pooja Thali">
+          <div class="pt-4 space-y-2">
+            <h3 class="font-semibold text-slate-900">Premium Pooja Thali Set</h3>
+            <p class="text-sm text-slate-500">Complete ritual essentials</p>
+            <div class="flex items-center justify-between pt-3">
+              <span class="rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-700">₹1,299</span>
+              <button class="rounded-full bg-kerala-green px-4 py-2 text-xs text-white">Add</button>
             </div>
           </div>
         </div>
 
-        <div class="rounded-2xl border bg-white overflow-hidden hover:shadow-soft hover:-translate-y-1 transition">
-          <img src="https://images.unsplash.com/photo-1523419409543-a7e2a4e44406?q=80&w=1200&auto=format&fit=crop"
-            alt="Sandalwood" class="h-44 w-full object-cover">
-          <div class="p-4">
-            <div class="font-semibold">Pure Sandalwood Powder</div>
-            <div class="text-sm text-slate-600 mt-1">Fragrant and sacred; sourced responsibly.</div>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-bold">₹799</span>
-              <button class="inline-flex items-center gap-2 rounded-lg bg-kerala-green px-3 py-2 text-white text-sm">Add
-                <i data-lucide="plus"></i></button>
+        <!-- CARD -->
+        <div class="group relative rounded-2xl bg-white p-4 shadow-soft hover:shadow-xl transition">
+          <img src="images/sandalwood.png" class="h-40 w-full object-cover rounded-xl" alt="Sandalwood">
+          <div class="pt-4 space-y-2">
+            <h3 class="font-semibold text-slate-900">Pure Sandalwood Powder</h3>
+            <p class="text-sm text-slate-500">Sacred & aromatic</p>
+            <div class="flex items-center justify-between pt-3">
+              <span class="rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-700">₹799</span>
+              <button class="rounded-full bg-kerala-green px-4 py-2 text-xs text-white">Add</button>
             </div>
           </div>
         </div>
 
-        <div class="rounded-2xl border bg-white overflow-hidden hover:shadow-soft hover:-translate-y-1 transition">
-          <img src="https://images.unsplash.com/photo-1622519407651-eb5d4f1463d2?q=80&w=1200&auto=format&fit=crop"
-            alt="Incense" class="h-44 w-full object-cover">
-          <div class="p-4">
-            <div class="font-semibold">Natural Incense Sticks</div>
-            <div class="text-sm text-slate-600 mt-1">Hand-rolled, toxin-free, long-lasting aroma.</div>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-bold">₹299</span>
-              <button class="inline-flex items-center gap-2 rounded-lg bg-kerala-green px-3 py-2 text-white text-sm">Add
-                <i data-lucide="plus"></i></button>
+        <!-- CARD -->
+        <div class="group relative rounded-2xl bg-white p-4 shadow-soft hover:shadow-xl transition">
+          <img src="images/incense.png" class="h-40 w-full object-cover rounded-xl" alt="Incense">
+          <div class="pt-4 space-y-2">
+            <h3 class="font-semibold text-slate-900">Natural Incense Sticks</h3>
+            <p class="text-sm text-slate-500">Long-lasting fragrance</p>
+            <div class="flex items-center justify-between pt-3">
+              <span class="rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-700">₹299</span>
+              <button class="rounded-full bg-kerala-green px-4 py-2 text-xs text-white">Add</button>
             </div>
           </div>
         </div>
-        <!-- Kerala ritual items -->
-        <div class="rounded-2xl border bg-white overflow-hidden hover:shadow-soft hover:-translate-y-1 transition">
-          <img src="https://images.unsplash.com/photo-1615557966837-52d69f96455c?q=80&w=1400&auto=format&fit=crop"
-            alt="Brass Uruli Bowl" class="h-44 w-full object-cover">
-          <div class="p-4">
-            <div class="font-semibold">Brass Uruli Bowl</div>
-            <div class="text-sm text-slate-600 mt-1">Traditional Kerala uruli for flowers and auspicious décor.</div>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-bold">₹1,899</span>
-              <button class="inline-flex items-center gap-2 rounded-lg bg-kerala-green px-3 py-2 text-white text-sm">Add
-                <i data-lucide="plus"></i></button>
-            </div>
-          </div>
-        </div>
-        <div class="rounded-2xl border bg-white overflow-hidden hover:shadow-soft hover:-translate-y-1 transition">
-          <img src="https://images.unsplash.com/photo-1601308589454-529f3dcd89e8?q=80&w=1400&auto=format&fit=crop"
-            alt="Nettipattam Elephant Caparison" class="h-44 w-full object-cover">
-          <div class="p-4">
-            <div class="font-semibold">Nettipattam (Caparison)</div>
-            <div class="text-sm text-slate-600 mt-1">Iconic Kerala temple décor for festive ambience.</div>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-bold">₹3,499</span>
-              <button class="inline-flex items-center gap-2 rounded-lg bg-kerala-green px-3 py-2 text-white text-sm">Add
-                <i data-lucide="plus"></i></button>
-            </div>
-          </div>
-        </div>
+
       </div>
 
-      <div class="mt-8 text-center">
+      <!-- Footer CTA -->
+      <div class="mt-14 text-center">
         <a href="#contact"
-          class="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 hover:bg-white">See More <i
-            data-lucide="arrow-right"></i></a>
+          class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 shadow-soft hover:shadow-md text-sm">
+          Explore Full Collection <i data-lucide="arrow-right"></i>
+        </a>
       </div>
+
     </div>
   </section>
+
+
+
   <!-- Gallery -->
 
   <section id="gallery" class="bg-[#faf5e9] border-y overflow-hidden">
@@ -1196,99 +1249,239 @@
   </section>
 
   <!-- Testimonials -->
-  <section class="bg-gradient-to-br from-white to-amber-50 border-y">
+  <section class="relative overflow-hidden bg-gradient-to-br from-white via-amber-50/50 to-white border-y">
+
     <div class="mx-auto max-w-7xl px-4 py-16 md:py-24">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center">What Customers Say</h2>
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl border bg-white p-6 shadow-soft">
-          <div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-full bg-kerala-green/10 flex items-center justify-center text-kerala-green"><i
-                data-lucide='user'></i></div>
-            <div>
-              <div class="font-semibold">Anjana K</div>
-              <div class="text-xs text-slate-500">Kochi</div>
-            </div>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- LEFT : IMAGE -->
+        <div class="relative">
+          <div class="relative overflow-hidden rounded-3xl shadow-xl">
+            <img src="images/elephant.jpg" alt="Kerala temple festival elephant"
+              class="h-[520px] w-full object-cover object-center">
+
+            <!-- soft overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent"></div>
+
+            <!-- caption -->
+
           </div>
-          <p class="mt-4 text-slate-700">Great quality and prompt delivery. The brass lamp was exactly as described!</p>
         </div>
-        <div class="rounded-2xl border bg-white p-6 shadow-soft">
-          <div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-full bg-kerala-green/10 flex items-center justify-center text-kerala-green"><i
-                data-lucide='user'></i></div>
-            <div>
-              <div class="font-semibold">Radhakrishnan P</div>
-              <div class="text-xs text-slate-500">Thrissur</div>
+
+        <!-- RIGHT : TESTIMONIALS -->
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
+            What Our Customers Say
+          </h2>
+          <p class="mt-3 text-slate-600 max-w-md">
+            Trusted by families across Kerala and beyond for authentic ritual services.
+          </p>
+
+          <div class="mt-8 space-y-6">
+
+            <!-- Card -->
+            <div class="rounded-2xl bg-white p-6 shadow-soft">
+              <div class="flex items-center gap-3">
+                <div
+                  class="h-10 w-10 rounded-full bg-kerala-green/10 flex items-center justify-center text-kerala-green">
+                  <i data-lucide="user"></i>
+                </div>
+                <div>
+                  <div class="font-semibold">Anjana K</div>
+                  <div class="text-xs text-slate-500">Kochi</div>
+                </div>
+              </div>
+              <p class="mt-4 text-slate-700">
+                Great quality and prompt delivery. The brass lamp was exactly as described!
+              </p>
             </div>
-          </div>
-          <p class="mt-4 text-slate-700">Loved the Gift a Pooja service—such a thoughtful way to send blessings.</p>
-        </div>
-        <div class="rounded-2xl border bg-white p-6 shadow-soft">
-          <div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-full bg-kerala-green/10 flex items-center justify-center text-kerala-green"><i
-                data-lucide='user'></i></div>
-            <div>
-              <div class="font-semibold">Meera S</div>
-              <div class="text-xs text-slate-500">Bengaluru</div>
+
+            <!-- Card -->
+            <div class="rounded-2xl bg-white p-6 shadow-soft">
+              <div class="flex items-center gap-3">
+                <div
+                  class="h-10 w-10 rounded-full bg-kerala-green/10 flex items-center justify-center text-kerala-green">
+                  <i data-lucide="user"></i>
+                </div>
+                <div>
+                  <div class="font-semibold">Radhakrishnan P</div>
+                  <div class="text-xs text-slate-500">Thrissur</div>
+                </div>
+              </div>
+              <p class="mt-4 text-slate-700">
+                Loved the Gift a Pooja service—such a thoughtful way to send blessings.
+              </p>
             </div>
+
+            <!-- Card -->
+            <div class="rounded-2xl bg-white p-6 shadow-soft">
+              <div class="flex items-center gap-3">
+                <div
+                  class="h-10 w-10 rounded-full bg-kerala-green/10 flex items-center justify-center text-kerala-green">
+                  <i data-lucide="user"></i>
+                </div>
+                <div>
+                  <div class="font-semibold">Meera S</div>
+                  <div class="text-xs text-slate-500">Bengaluru</div>
+                </div>
+              </div>
+              <p class="mt-4 text-slate-700">
+                Their rental kits made our Onam pooja setup effortless. Highly recommend!
+              </p>
+            </div>
+
           </div>
-          <p class="mt-4 text-slate-700">Their rental kits made our Onam pooja setup effortless. Highly recommend!</p>
         </div>
+
       </div>
     </div>
   </section>
+
 
   <!-- Contact -->
-  <section id="contact" class="mx-auto max-w-7xl px-4 py-16 md:py-24">
-    <div class="grid md:grid-cols-2 gap-10">
-      <div>
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Contact Us</h2>
-        <p class="mt-3 text-slate-600">Tell us what you need and we’ll get back within 24 hours.</p>
+  <section id="contact" class="relative bg-gradient-to-b from-white via-amber-50/30 to-white">
 
-        <div class="mt-6 space-y-4 text-sm">
-          <div class="flex items-center gap-3"><i data-lucide="phone" class="text-kerala-green"></i> +91 6282 170 640
+    <!-- IMAGE STRIP -->
+    <div class="relative h-[320px] overflow-hidden">
+      <img src="images/contact.jpg" alt="Kerala temple stone sculpture"
+        class="h-full w-full object-cover object-center">
+
+      <!-- soft stone overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-white"></div>
+
+      <!-- Heading on image -->
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="relative mx-auto max-w-7xl px-4 pb-20">
+
+      <!-- Floating Card -->
+      <div class="-mt-20 grid md:grid-cols-5 gap-10 items-start">
+
+        <!-- LEFT INFO -->
+        <div class="md:col-span-2 space-y-6">
+          <div class="rounded-3xl bg-white p-6 shadow-soft ring-1 ring-slate-200">
+
+            <h3 class="text-xl font-bold">Contact Details</h3>
+
+            <div class="mt-4 space-y-4 text-sm">
+              <div class="flex items-center gap-3">
+                <i data-lucide="phone" class="text-kerala-green"></i>
+                +91 6282 170 640
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="mail" class="text-kerala-green"></i>
+                info@thirumenitraders.com
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="map-pin" class="text-kerala-green"></i>
+                Trivandrum, Kerala, India
+              </div>
+            </div>
+
+            <p class="mt-4 text-xs text-slate-500">
+              We usually respond within 24 hours.
+            </p>
           </div>
-          <div class="flex items-center gap-3"><i data-lucide="mail" class="text-kerala-green"></i>
-            info@thirumenitraders.com</div>
-          <div class="flex items-center gap-3"><i data-lucide="map-pin" class="text-kerala-green"></i> Trivandrum,
-            Kerala, India</div>
         </div>
+
+        <!-- RIGHT FORM -->
+        <div class="md:col-span-3">
+          <form class="rounded-3xl bg-[#faf5e9] p-6 md:p-8 shadow-xl ring-1 ring-slate-200">
+
+            <!-- FORM HEADER -->
+            <div class="mb-6">
+              <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">
+                Get in Touch
+              </h2>
+              <p class="mt-2 text-sm text-slate-600 max-w-md">
+                Tell us what you need — we’ll guide you with care and clarity.
+              </p>
+            </div>
+
+            <!-- FIELDS -->
+            <div class="grid sm:grid-cols-2 gap-5">
+
+              <!-- Name -->
+              <div>
+                <label class="text-xs font-semibold tracking-wide text-slate-600 uppercase">
+                  Name
+                </label>
+                <input type="text" placeholder="Your full name" class="mt-1 w-full rounded-xl bg-white/90 border border-slate-200
+        px-4 py-3 text-sm
+        placeholder:text-slate-400
+        focus:outline-none focus:ring-2 focus:ring-kerala-green/30
+        focus:border-kerala-green/40 transition">
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label class="text-xs font-semibold tracking-wide text-slate-600 uppercase">
+                  Email
+                </label>
+                <input type="email" placeholder="name@example.com" class="mt-1 w-full rounded-xl bg-white/90 border border-slate-200
+        px-4 py-3 text-sm
+        placeholder:text-slate-400
+        focus:outline-none focus:ring-2 focus:ring-kerala-green/30
+        focus:border-kerala-green/40 transition">
+              </div>
+
+              <!-- Service -->
+              <div class="sm:col-span-2">
+                <label class="text-xs font-semibold tracking-wide text-slate-600 uppercase">
+                  Service
+                </label>
+                <select class="mt-1 w-full rounded-xl bg-white/90 border border-slate-200
+        px-4 py-3 text-sm
+        focus:outline-none focus:ring-2 focus:ring-kerala-green/30
+        focus:border-kerala-green/40 transition">
+                  <option>Select a service</option>
+                  <option>Buy a Product</option>
+                  <option>Rent a Product</option>
+                  <option>Gift a Pooja</option>
+                  <option>Book a Ritual (Custom)</option>
+                </select>
+              </div>
+
+              <!-- Message -->
+              <div class="sm:col-span-2">
+                <label class="text-xs font-semibold tracking-wide text-slate-600 uppercase">
+                  Message
+                </label>
+                <textarea rows="4" placeholder="Tell us more about your requirement..." class="mt-1 w-full rounded-xl bg-white/90 border border-slate-200
+        px-4 py-3 text-sm resize-none
+        placeholder:text-slate-400
+        focus:outline-none focus:ring-2 focus:ring-kerala-green/30
+        focus:border-kerala-green/40 transition"></textarea>
+              </div>
+
+            </div>
+
+            <!-- ACTION -->
+            <div class="mt-6 flex items-center justify-between gap-4">
+              <p class="text-xs text-slate-500 max-w-xs">
+                We usually respond within 24 hours.
+              </p>
+
+              <button type="button" class="inline-flex items-center gap-2 rounded-xl
+      bg-kerala-green px-6 py-3
+      text-white text-sm font-semibold
+      shadow-soft hover:opacity-95 transition">
+                Send Enquiry
+                <i data-lucide="send" class="h-4 w-4"></i>
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+
       </div>
-
-      <form class="rounded-2xl border p-6 bg-white shadow-soft">
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div>
-            <label class="text-sm font-medium">Name</label>
-            <input type="text" placeholder="Your full name"
-              class="mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kerala-green" />
-          </div>
-          <div>
-            <label class="text-sm font-medium">Email</label>
-            <input type="email" placeholder="name@example.com"
-              class="mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kerala-green" />
-          </div>
-          <div class="sm:col-span-2">
-            <label class="text-sm font-medium">Service</label>
-            <select
-              class="mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kerala-green">
-              <option>Buy a Product</option>
-              <option>Rent a Product</option>
-              <option>Gift a Pooja</option>
-              <option>Book a Ritual (Custom)</option>
-            </select>
-          </div>
-          <div class="sm:col-span-2">
-            <label class="text-sm font-medium">Message</label>
-            <textarea rows="4" placeholder="Tell us more..."
-              class="mt-1 w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kerala-green"></textarea>
-          </div>
-        </div>
-        <button type="button"
-          class="mt-4 inline-flex items-center gap-2 rounded-lg bg-kerala-green px-5 py-3 text-white">Send Enquiry <i
-            data-lucide="send"></i></button>
-        <p class="mt-2 text-xs text-slate-500">This is a demo form for showcasing. Hook it to your backend later.</p>
-      </form>
     </div>
   </section>
+
+
 
   <!-- Mobile quick actions spacer -->
   <div class="h-16 md:hidden"></div>
