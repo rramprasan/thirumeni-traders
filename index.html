@@ -7,6 +7,19 @@
   <title>Thirumeni Traders – Kerala E-Rituals Products & Services</title>
   <meta name="description"
     content="Thirumeni Traders provides authentic Kerala e-rituals products and services. Buy, rent, or gift pooja essentials with ease." />
+  <link rel="canonical" href="https://thirumenitraders.com/" />
+  <meta name="theme-color" content="#0b7d44" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thirumenitraders.com/" />
+  <meta property="og:title" content="Thirumeni Traders – Kerala E-Rituals Products & Services" />
+  <meta property="og:description" content="Authentic Kerala e-rituals products and services. Buy, rent, or gift pooja essentials with ease." />
+  <meta property="og:image" content="https://thirumenitraders.com/images/logo.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Thirumeni Traders – Kerala E-Rituals Products & Services" />
+  <meta name="twitter:description" content="Authentic Kerala e-rituals products and services. Buy, rent, or gift pooja essentials with ease." />
+  <meta name="twitter:image" content="https://thirumenitraders.com/images/logo.png" />
   <link rel="icon" type="image/png" href="images/logo.png" />
 
   <!-- Inter font -->
@@ -222,6 +235,15 @@
     .animate-lightbox {
       animation: lightboxZoom 0.35s ease-out;
     }
+    /* Global focus-visible for accessibility */
+    :where(a, button):focus-visible {
+      outline: 2px solid #0b7d44;
+      outline-offset: 2px;
+    }
+    /* Safe-area support for iOS bottom insets */
+    .safe-bottom {
+      bottom: calc(5rem + env(safe-area-inset-bottom));
+    }
   </style>
   <!-- SEO Structured Data -->
   <script type="application/ld+json">
@@ -350,6 +372,15 @@
 </head>
 
 <body class="bg-white text-slate-800">
+  <!-- Scroll progress bar -->
+  <div id="scrollProgress" class="fixed top-0 left-0 right-0 z-50 h-1 bg-kerala-green/10">
+    <div id="scrollProgressBar" class="h-full w-0 bg-kerala-green"></div>
+  </div>
+  
+  <!-- Back to top button -->
+  <button id="backToTop" aria-label="Back to top" class="fixed bottom-20 right-4 safe-bottom hidden flex items-center justify-center h-10 w-10 rounded-full bg-kerala-green text-white shadow-soft hover:opacity-90 z-40 md:bottom-6 md:right-6 md:h-11 md:w-11">
+    <i data-lucide="arrow-up"></i>
+  </button>
   <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
     <symbol id="icon-diya" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
       stroke-linecap="round" stroke-linejoin="round">
@@ -414,7 +445,7 @@
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium" aria-label="Main navigation">
         <a href="#services" class="nav-link hover:text-kerala-green">Services</a>
         <a href="#products" class="nav-link hover:text-kerala-green">Products</a>
         <a href="#about" class="nav-link hover:text-kerala-green">About</a>
@@ -429,7 +460,7 @@
           <span>WhatsApp Us</span>
         </a>
 
-        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg border border-slate-200">
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg border border-slate-200" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle menu">
           <i data-lucide="menu"></i>
         </button>
       </div>
@@ -451,7 +482,7 @@
   <section class="relative overflow-hidden bg-[#0a0a0a]">
     <!-- Ambient background -->
     <div class="absolute inset-0">
-      <img src="images/BG.JPG" class="h-full w-full object-cover opacity-40 md:opacity-55" alt="" aria-hidden="true">
+      <img id="heroBg" src="images/BG.JPG" class="h-full w-full object-cover opacity-40 md:opacity-55" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
     </div>
 
 
@@ -582,6 +613,18 @@
 
   </section>
 
+  <!-- Section separator -->
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="relative my-8 md:my-12">
+      <div class="h-px bg-gradient-to-r from-transparent via-kerala-green/30 to-transparent"></div>
+      <div class="absolute inset-0 flex justify-center">
+        <span class="-mt-3 inline-flex items-center justify-center rounded-full bg-white border px-3 py-2 text-kerala-green shadow-soft">
+          <svg class="h-5 w-5" aria-hidden="true"><use href="#icon-kerala" /></svg>
+        </span>
+      </div>
+    </div>
+  </div>
+
   <!-- Services -->
   <section id="services" class="mx-auto max-w-7xl px-4 py-16 md:py-24">
     <div class="text-center max-w-3xl mx-auto">
@@ -668,6 +711,18 @@
     </div>
 
   </section>
+
+  <!-- Section separator -->
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="relative my-8 md:my-12">
+      <div class="h-px bg-gradient-to-r from-transparent via-kerala-green/30 to-transparent"></div>
+      <div class="absolute inset-0 flex justify-center">
+        <span class="-mt-3 inline-flex items-center justify-center rounded-full bg-white border px-3 py-2 text-kerala-green shadow-soft">
+          <svg class="h-5 w-5" aria-hidden="true"><use href="#icon-kerala" /></svg>
+        </span>
+      </div>
+    </div>
+  </div>
 
   <!-- Service Details -->
   <section id="service-details" class="relative">
@@ -811,6 +866,18 @@
     </div>
   </section>
 
+  <!-- Section separator -->
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="relative my-8 md:my-12">
+      <div class="h-px bg-gradient-to-r from-transparent via-kerala-green/30 to-transparent"></div>
+      <div class="absolute inset-0 flex justify-center">
+        <span class="-mt-3 inline-flex items-center justify-center rounded-full bg-white border px-3 py-2 text-kerala-green shadow-soft">
+          <svg class="h-5 w-5" aria-hidden="true"><use href="#icon-kerala" /></svg>
+        </span>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Products showcase -->
   <section id="products" class="relative overflow-hidden">
@@ -929,6 +996,19 @@
 
 
 
+  <!-- Section separator -->
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="relative my-8 md:my-12">
+      <div class="h-px bg-gradient-to-r from-transparent via-kerala-green/30 to-transparent"></div>
+      <div class="absolute inset-0 flex justify-center">
+        <span class="-mt-3 inline-flex items-center justify-center rounded-full bg-white border px-3 py-2 text-kerala-green shadow-soft">
+          <svg class="h-5 w-5" aria-hidden="true"><use href="#icon-kerala" /></svg>
+        </span>
+      </div>
+    </div>
+  </div>
+
+
   <!-- Gallery -->
 
   <section id="gallery" class="bg-[#faf5e9] border-y overflow-hidden">
@@ -951,7 +1031,7 @@
           <!-- example -->
           <div class="gallery-item shrink-0 w-60 sm:w-72">
             <div class="relative overflow-hidden rounded-2xl shadow-soft gallery-glow">
-              <img src="images/02.jpg" class="h-56 w-full object-cover cursor-zoom-in" loading="lazy">
+              <img src="images/02.jpg" alt="Kerala ritual moment" class="h-56 w-full object-cover cursor-zoom-in" loading="lazy">
             </div>
           </div>
 
@@ -1220,6 +1300,18 @@
     </div>
   </section>
 
+  <!-- Section separator -->
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="relative my-8 md:my-12">
+      <div class="h-px bg-gradient-to-r from-transparent via-kerala-green/30 to-transparent"></div>
+      <div class="absolute inset-0 flex justify-center">
+        <span class="-mt-3 inline-flex items-center justify-center rounded-full bg-white border px-3 py-2 text-kerala-green shadow-soft">
+          <svg class="h-5 w-5" aria-hidden="true"><use href="#icon-kerala" /></svg>
+        </span>
+      </div>
+    </div>
+  </div>
+
   <!-- About -->
   <section id="about" class="mx-auto max-w-7xl px-4 py-16 md:py-24">
     <div class="grid md:grid-cols-2 gap-10 items-center">
@@ -1247,6 +1339,18 @@
       </div>
     </div>
   </section>
+
+  <!-- Section separator -->
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="relative my-8 md:my-12">
+      <div class="h-px bg-gradient-to-r from-transparent via-kerala-green/30 to-transparent"></div>
+      <div class="absolute inset-0 flex justify-center">
+        <span class="-mt-3 inline-flex items-center justify-center rounded-full bg-white border px-3 py-2 text-kerala-green shadow-soft">
+          <svg class="h-5 w-5" aria-hidden="true"><use href="#icon-kerala" /></svg>
+        </span>
+      </div>
+    </div>
+  </div>
 
   <!-- Testimonials -->
   <section class="relative overflow-hidden bg-gradient-to-br from-white via-amber-50/50 to-white border-y">
@@ -1336,6 +1440,19 @@
       </div>
     </div>
   </section>
+
+
+  <!-- Section separator -->
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="relative my-8 md:my-12">
+      <div class="h-px bg-gradient-to-r from-transparent via-kerala-green/30 to-transparent"></div>
+      <div class="absolute inset-0 flex justify-center">
+        <span class="-mt-3 inline-flex items-center justify-center rounded-full bg-white border px-3 py-2 text-kerala-green shadow-soft">
+          <svg class="h-5 w-5" aria-hidden="true"><use href="#icon-kerala" /></svg>
+        </span>
+      </div>
+    </div>
+  </div>
 
 
   <!-- Contact -->
@@ -1580,75 +1697,69 @@
         track.appendChild(item.cloneNode(true));
       });
     });
-    document.addEventListener("DOMContentLoaded", () => {
-      const galleryGrid = document.getElementById("galleryGrid");
-      const items = Array.from(
-        galleryGrid.querySelectorAll(".gallery-item")
-      );
-
-      if (items.length <= 5) return;
-
-      function shuffleGallery() {
-        // Shuffle items
-        const shuffled = items
-          .map(item => ({ item, sort: Math.random() }))
-          .sort((a, b) => a.sort - b.sort)
-          .map(({ item }) => item);
-
-        // Random count between 5 and 10
-        const visibleCount = Math.floor(Math.random() * 6) + 5;
-
-        // Hide all
-        items.forEach(item => {
-          item.style.display = "none";
-        });
-
-        // Show selected with animation
-        shuffled.slice(0, visibleCount).forEach(item => {
-          item.style.display = "block";
-          item.style.animation = "galleryFadeUp 0.8s ease forwards";
-        });
-      }
-
-      // Initial load
-      shuffleGallery();
-
-      // Auto-rotate every 10 seconds
-      setInterval(shuffleGallery, 10000);
-    });
-    document.addEventListener("DOMContentLoaded", () => {
-      const items = Array.from(
-        document.querySelectorAll("#galleryGrid .gallery-item")
-      );
-
-      if (items.length <= 10) return;
-
-      // Shuffle
-      const shuffled = items.sort(() => 0.5 - Math.random());
-
-      // Pick random count between 5 and 10
-      const visibleCount = Math.floor(Math.random() * 6) + 5;
-
-      // Hide all
-      items.forEach(item => {
-        item.style.display = "none";
-      });
-
-      // Show selected
-      shuffled.slice(0, visibleCount).forEach(item => {
-        item.style.display = "block";
-      });
-    });
+    
     // Icons
     lucide.createIcons();
 
     // Mobile menu toggle
     const mobileBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileBtn?.addEventListener('click', () => {
+      const nowHidden = mobileMenu.classList.toggle('hidden');
+      mobileBtn.setAttribute('aria-expanded', (!nowHidden).toString());
+    });
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll progress bar + subtle parallax + back-to-top
+    const progressEl = document.getElementById('scrollProgressBar');
+    const progressWrap = document.getElementById('scrollProgress');
+    const heroBgEl = document.getElementById('heroBg');
+    const backToTopBtn = document.getElementById('backToTop');
+    let ticking = false;
+
+    function updateProgress() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = docHeight > 0 ? Math.min(1, scrollTop / docHeight) : 0;
+      progressEl.style.width = `${ratio * 100}%`;
+      // keep visible; could fade in later if desired
+      progressWrap.style.opacity = '1';
+
+      // Subtle parallax for hero background
+      if (heroBgEl) {
+        const offset = Math.min(60, scrollTop * 0.08);
+        heroBgEl.style.transform = `translateY(${offset}px)`;
+        heroBgEl.style.willChange = 'transform';
+      }
+
+      // Toggle back-to-top visibility (desktop only)
+      if (backToTopBtn) {
+        if (scrollTop > window.innerHeight * 0.25) {
+          backToTopBtn.classList.remove('hidden');
+        } else {
+          backToTopBtn.classList.add('hidden');
+        }
+      }
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
+    // Back-to-top click
+    backToTopBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
     // Reveal on scroll animations
     const observer = new IntersectionObserver((entries) => {
@@ -1660,6 +1771,27 @@
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    // Scrollspy: highlight active nav link by observed section
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const navLinks = Array.from(document.querySelectorAll('header nav a.nav-link'));
+    const linkById = new Map(navLinks.map(a => [a.getAttribute('href')?.replace('#', '') || '', a]));
+
+    const scrollSpy = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = linkById.get(id);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '-45% 0px -45% 0px',
+      threshold: 0.01
+    });
+
+    sections.forEach(sec => scrollSpy.observe(sec));
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const closeBtn = document.getElementById('lightboxClose');
