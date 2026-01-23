@@ -244,6 +244,21 @@
     .safe-bottom {
       bottom: calc(5rem + env(safe-area-inset-bottom));
     }
+    /* Premium subtle grain over hero */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 3px 3px;
+      mix-blend-mode: multiply;
+      opacity: .15;
+    }
+    /* Premium border for gallery items */
+    .gallery-glow {
+      border: 1px solid rgba(199, 160, 40, 0.25);
+    }
   </style>
   <!-- SEO Structured Data -->
   <script type="application/ld+json">
@@ -479,7 +494,7 @@
   </header>
 
   <!-- Hero -->
-  <section class="relative overflow-hidden bg-[#0a0a0a]">
+  <section class="relative overflow-hidden bg-[#0a0a0a] hero">
     <!-- Ambient background -->
     <div class="absolute inset-0">
       <img id="heroBg" src="images/BG.JPG" class="h-full w-full object-cover opacity-40 md:opacity-55" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
@@ -545,10 +560,10 @@
             masked-image">
 
         <!-- Blurred background clone (bigger + stronger) -->
-        <div class="group relative h-[260px] sm:h-[360px] md:h-[420px] overflow-hidden rounded-3xl shadow-soft">
+        <div class="group relative h-[260px] sm:h-[360px] md:h-[420px] overflow-hidden rounded-3xl shadow-soft ring-1 ring-amber-200/30">
 
           <!-- Image -->
-          <img src="images/Mask.png" alt="Sacred homa kundam ritual" class="h-full w-full object-cover object-right
+          <img src="images/Mask.png" alt="Sacred homa kundam ritual" loading="lazy" class="h-full w-full object-cover object-right
            transition-transform duration-[6000ms] ease-out
            group-hover:scale-105" />
 
@@ -736,7 +751,7 @@
       <div class="rounded-3xl bg-[#f8faf7] p-6 md:p-10">
         <div class="grid md:grid-cols-2 gap-8 items-center reveal" data-animate>
           <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
-            <img src="images/home_pooja.png" alt="Brass diyas and pooja setup" class="h-80 w-full object-cover">
+            <img src="images/home_pooja.png" alt="Brass diyas and pooja setup" loading="lazy" class="h-80 w-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/70 to-transparent"></div>
           </div>
           <div>
@@ -793,7 +808,7 @@
             </a>
           </div>
           <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl bg-white shadow-soft">
-            <img src="images/rental.jpg" alt="Decor elements for ceremonies" class="h-80 w-full object-cover">
+            <img src="images/rental.jpg" alt="Decor elements for ceremonies" loading="lazy" class="h-80 w-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
           </div>
         </div>
@@ -803,7 +818,7 @@
       <div class="rounded-3xl bg-[#f7f3ff] p-6 md:p-10">
         <div class="grid md:grid-cols-2 gap-8 items-center reveal" data-animate>
           <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
-            <img src="images/gift_pooja.png" alt="Blessings as a gift" class="h-80 w-full object-cover">
+            <img src="images/gift_pooja.png" alt="Blessings as a gift" loading="lazy" class="h-80 w-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
           </div>
           <div>
@@ -857,7 +872,7 @@
             </a>
           </div>
           <div class="order-1 md:order-2 relative overflow-hidden rounded-2xl bg-white shadow-soft">
-            <img src="images/book.png" alt="Traditional ritual in progress" class="h-80 w-full object-cover">
+            <img src="images/book.png" alt="Traditional ritual in progress" loading="lazy" class="h-80 w-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-tr from-[#faf5e9]/60 to-transparent"></div>
           </div>
         </div>
@@ -917,7 +932,7 @@
         <!-- CARD -->
         <div
           class="group relative rounded-2xl bg-white p-4 shadow-soft hover:shadow-xl transition hover:-translate-y-1">
-          <div class="relative overflow-hidden rounded-xl">
+          <div class="relative overflow-hidden rounded-xl ring-1 ring-amber-200/30">
             <img src="images/nilavilaku.png"
               class="h-40 w-full object-cover transition duration-500 group-hover:scale-105" alt="Nilavilakku">
           </div>
@@ -944,7 +959,7 @@
 
         <!-- CARD -->
         <div class="group relative rounded-2xl bg-white p-4 shadow-soft hover:shadow-xl transition">
-          <img src="images/thali.png" class="h-40 w-full object-cover rounded-xl" alt="Pooja Thali">
+          <img src="images/thali.png" loading="lazy" class="h-40 w-full object-cover rounded-xl" alt="Pooja Thali">
           <div class="pt-4 space-y-2">
             <h3 class="font-semibold text-slate-900">Premium Pooja Thali Set</h3>
             <p class="text-sm text-slate-500">Complete ritual essentials</p>
@@ -957,7 +972,7 @@
 
         <!-- CARD -->
         <div class="group relative rounded-2xl bg-white p-4 shadow-soft hover:shadow-xl transition">
-          <img src="images/sandalwood.png" class="h-40 w-full object-cover rounded-xl" alt="Sandalwood">
+          <img src="images/sandalwood.png" loading="lazy" class="h-40 w-full object-cover rounded-xl" alt="Sandalwood">
           <div class="pt-4 space-y-2">
             <h3 class="font-semibold text-slate-900">Pure Sandalwood Powder</h3>
             <p class="text-sm text-slate-500">Sacred & aromatic</p>
@@ -970,7 +985,7 @@
 
         <!-- CARD -->
         <div class="group relative rounded-2xl bg-white p-4 shadow-soft hover:shadow-xl transition">
-          <img src="images/incense.png" class="h-40 w-full object-cover rounded-xl" alt="Incense">
+          <img src="images/incense.png" loading="lazy" class="h-40 w-full object-cover rounded-xl" alt="Incense">
           <div class="pt-4 space-y-2">
             <h3 class="font-semibold text-slate-900">Natural Incense Sticks</h3>
             <p class="text-sm text-slate-500">Long-lasting fragrance</p>
@@ -1334,7 +1349,7 @@
       <div class="relative">
         <div class="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-amber-200/50 blur-2xl"></div>
         <div class="relative overflow-hidden rounded-2xl bg-white shadow-soft">
-          <img src="images/devine.png" alt="Craftsmanship" class="h-80 w-full object-cover">
+          <img src="images/devine.png" alt="Craftsmanship" loading="lazy" class="h-80 w-full object-cover">
         </div>
       </div>
     </div>
