@@ -1,0 +1,194 @@
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Premium soft edge vignette mask */
+#gallery {
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .gallery-track {
+    animation: none !important;
+  }
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+/* Continuous gallery animation */
+@keyframes slideGallery {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.gallery-track {
+  animation: slideGallery 60s linear infinite;
+}
+
+/* Pause on hover (premium UX) */
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle animations and effects */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.reveal.in {
+  animation: fadeUp .7s ease-out forwards;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(11, 125, 68, .2), rgba(199, 160, 40, .4));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Gallery animations */
+@keyframes galleryFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.gallery-item {
+  opacity: 0;
+  transform: translateY(24px) scale(0.96);
+  animation: galleryFadeUp 0.8s ease forwards;
+}
+
+
+
+.gallery-item:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.gallery-item:nth-child(even) {
+  animation-delay: 0.25s;
+}
+
+.gallery-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+      rgba(199, 160, 40, 0.35),
+      transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  /* 🔥 THIS FIXES EVERYTHING */
+}
+
+
+.gallery-glow:hover::after {
+  opacity: 1;
+}
+
+@keyframes lightboxZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-lightbox {
+  animation: lightboxZoom 0.35s ease-out;
+}
+/* Global focus-visible for accessibility */
+:where(a, button):focus-visible {
+  outline: 2px solid #0b7d44;
+  outline-offset: 2px;
+}
+/* Safe-area support for iOS bottom insets */
+.safe-bottom {
+  bottom: calc(5rem + env(safe-area-inset-bottom));
+}
+/* Premium subtle grain over hero */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+  opacity: .15;
+}
+/* Premium border for gallery items */
+.gallery-glow {
+  border: 1px solid rgba(199, 160, 40, 0.25);
+}
